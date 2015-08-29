@@ -6,6 +6,7 @@ $(document).ready(function () {
     });
     
     $('#btnAgregar').on('click',function(){
+        limpiarCampos();
         $('#exampleModal').modal('show');
         $('#accion').val('alta');
     });
@@ -28,7 +29,7 @@ function consultaUsuarios() {
         cache: false,
         data: JSON.stringify(),
         success: function (usuarios) {
-            var usuario;
+            
             for (var i = 0; i < usuarios.length; i++) {
                 agregaLinea(usuarios[i]);
             }
@@ -84,16 +85,30 @@ function usuario(accion) {
 }
 
 function actualizaEditar(usuario){
-    $('#usuario_id').val(id);
     var fila = $('#fila_usuario_'+usuario.id);
-    fila.empty().append('       <td class="text-center"><label id="usuario_'+usuario.id+'" class="codigo">'+ usuario.id +'</label></td>'
+    fila.empty();
+    fila.append('       <td class="text-center"><label id="usuario_'+usuario.id+'" class="codigo">'+ usuario.id +'</label></td>'
         + ' <td>'+ usuario.nombre +'</td>'
         + ' <td>'+ usuario.userName +'</td>'
         + ' <td>'+ usuario.nombreCorto +'</td>'
         + ' <td>'+ usuario.tipoUsuarioId +'</td>'
         + ' <td><a   id="btnDel_'+usuario.id+'" class="delete_row pull-right btn btn-default">Eliminar</a></td>'
         + ' <td><a   id="btnEdit_'+usuario.id+'" class="delete_row pull-right btn btn-default">Editar</a></td>');
+    $('#btnDel_'+usuario.id).click(eliminaUsuario(usuario.id));
+    $('#btnEdit_'+usuario.id).click(actualizaUsuario(usuario.id, usuario.nombre, usuario.apellido, usuario.userName, usuario.password, usuario.nombreCorto, usuario.tipoUsuarioId));
+    
 
+}
+
+function limpiarCampos(){
+    
+    $('#usuario_id').val('');
+    $('#usuario_nombre').val('');
+    $('#usuario_apellido').val('');
+    $('#usuario_username').val('');
+    $('#usuario_password').val('');
+    $('#usuario_nombre_corto').val('');
+    $('#usuario_tipo').val('');
 }
 
 function actualizaUsuario(id, nombre, apellido, userName, password, nombreCorto, tipoUsuarioId) {
@@ -112,7 +127,7 @@ function actualizaUsuario(id, nombre, apellido, userName, password, nombreCorto,
 
 var numeroLinea=1;
 function agregaLinea(usuario){
-    $('#tbl_usuarios > tbody:last').append( '<tr id="fila_usuario_'+usuario.id+'>'
+    $('#tbl_usuarios > tbody:last').append( '<tr id="fila_usuario_'+usuario.id+'">'
         + '<td class="text-center"><label id="usuario_'+usuario.id+'" class="codigo">'+ usuario.id +'</label></td>'
         + ' <td>'+ usuario.nombre +'</td>'
         + ' <td>'+ usuario.userName +'</td>'
