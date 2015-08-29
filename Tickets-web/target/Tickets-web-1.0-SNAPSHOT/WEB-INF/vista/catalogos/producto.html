@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div id="content">
+
+    <div class="container">
+        <div class="row clearfix seccion">
+            <form>
+                <div class="form-group">
+                    <label for="codigoProducto">Codigo</label>
+                    <input class="form-control" id="codigoProducto" placeholder="Codigo">
+                    <a id="btnAgregaProducto" class="btn btn-default pull-left">Buscar</a>
+                </div>
+            </form>
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <table class="table table-fixed" id="tab_logic">
+                        <thead>
+                            <tr>
+                                <th class="col-xs-1 text-center">Id</th>
+                                <th class="col-xs-2 text-center">Codigo Barras</th>
+                                <th class="col-xs-2 text-center">Descripción</th>
+                                <th class="col-xs-2 text-center">Descripción Corta</th>
+                                <th class="col-xs-2 text-center">Existencia Minima</th>
+                                <th class="col-xs-2 text-center">Precio Venta</th>
+                                <th class="col-xs-1 text-center">Inventario</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr id='addr1'></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Agregar</button>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="modal fade" id="inventarioModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Inventario</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <table class="table table-fixed" id="tbl_inventario">
+                            <thead>
+                                <tr>
+                                    <th class="col-xs-3 text-center">Id</th>
+                                    <th class="col-xs-3 text-center">Numero</th>
+                                    <th class="col-xs-3 text-center">Cantidad</th>
+                                    <th class="col-xs-3 text-center">Agrega Cantidad</th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <tr id='row_inventario_1' class="linea_inventario"></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button id="alta_inventario" type="button" class="btn btn-primary">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Producto</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+
+
+                    <div class="form-group">
+                        <label for="producto_descripcion" class="control-label">Descripción:</label>
+                        <input type="text" class="form-control" id="producto_descripcion">
+                    </div>
+                    <div class="form-group">
+                        <label for="producto_descripcion_corta" class="control-label">Descripción Cortta:</label>
+                        <input class="form-control" id="producto_descripcion_corta" placeholder="Descripción Corta">
+                    </div>
+                    <div class="form-group">
+                        <label for="producto_precio_venta" class="control-label">Precio Venta:</label>
+                        <input class="form-control" id="producto_precio_venta" placeholder="Precio a la Venta">
+                    </div>
+                    <div class="form-group">
+                        <label for="codigo_barras" class="control-label">Código de Barras:</label>
+                        <input class="form-control" id="codigo_barras" placeholder="Codigo Barras">
+                    </div>
+                    <div class="form-group">
+                        <label for="existencia_minima" class="control-label">Existencia Minima:</label>
+                        <input class="form-control" id="existencia_minima" placeholder="Existenia Minima">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button id="alta_producto" type="button" class="btn btn-primary">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+</div>

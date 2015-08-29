@@ -1,0 +1,4 @@
+com\tickets\web\controllers\ProductoController.class
+com\tickets\web\controllers\CatalogosHomeController.class
+com\tickets\web\controllers\UsuariosController.class
+com\tickets\web\controllers\HomeController.class

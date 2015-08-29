@@ -1,0 +1,126 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 25/06/2015, 10:07:08 AM
+    Author     : USUARIO
+*/
+
+body{
+    background: url('../img/fondos/01.jpg') no-repeat fixed center;
+    background-color: #ccc;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+.wrapper{
+    margin: 0 auto;
+    position: relative;
+}
+
+h1, h2, h3, h4, h5 ,h6{
+    color: #626262;
+    font-family: "lato-regular", Helvetica, Arial, sans-serif;
+    letter-spacing: 1px;
+}
+h1              { font-size: 2em; margin: .67em 0 }
+h2              { font-size: 1.5em; margin: .75em 0 }
+h3              { font-size: 1.17em; margin: .83em 0 }
+h5              { font-size: .83em; margin: 1.5em 0 }
+h6              { font-size: .75em; margin: 1.67em 0 }
+h1, h2, h3, h4,
+h5, h6          { font-weight: bolder }
+aside{
+    background-color: #000000;
+    opacity: 0.7;
+    position: fixed;
+    border: 0px;
+    width: 50px;
+    height: 100%;
+    z-index: 5;
+}
+#botonesaside{
+    position: fixed;
+    top: 100px;
+}
+header{
+    left: 50px;
+    height: 50px;
+}
+#botonesaside{
+    position: relative;
+    top: 20px;
+}
+.botonasidediv{
+    height: 40px;
+    width: 50px;
+}
+.botonasideimg{
+    position: relative;
+    left: 10px;
+    top: 7px;
+}
+#botonhome{
+    border-left: 5px;
+    border-style: solid;
+    border-color: #ff0000;
+}
+
+#headeraside{
+    position: initial;
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+}
+#content{
+    position: absolute;
+    z-index: 0;
+    left: 50px;
+    right: 50px;
+    top: 10px;
+    width: calc(100% - 50px);
+    height: calc(100% - 10px);
+}
+.seccion{
+    opacity: 0.95;
+    margin: 10px 0px 10px 0px;
+    padding: 15px 20px 20px 20px;
+    background-color: #fff;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+#emergentes{
+    left: initial;
+    top: initial;
+    right: initial;
+    bottom: initial;
+}
+#calc{
+    display: none;
+    background-color: #fff;
+    position: absolute;
+    left: 306px;
+    top: 183px;
+    text-align: center;
+}
+#calc div{
+    margin: 22px;
+}
+#calc div a{
+    padding: 11px 15px 11px 15px;
+    font-style: normal;
+    color: #fff;
+    background-color: #ffae00;
+    font-weight: bold;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
