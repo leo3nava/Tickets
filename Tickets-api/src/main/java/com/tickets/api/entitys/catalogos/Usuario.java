@@ -1,15 +1,12 @@
 package com.tickets.api.entitys.catalogos;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
 import javax.persistence.UniqueConstraint;
 
 @Entity
@@ -41,6 +38,9 @@ public class Usuario implements Serializable{
     
     @Column(name="TIPO_USUARIO_ID")
     private Long tipoUsuarioId;
+    
+    @Column(name="activo")
+    private Integer activo;
 
     public Long getId() {
         return id;
@@ -97,6 +97,14 @@ public class Usuario implements Serializable{
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-    
+
+    public Integer getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Integer activo) {
+        this.activo = activo;
+    }   
+
     
 }
