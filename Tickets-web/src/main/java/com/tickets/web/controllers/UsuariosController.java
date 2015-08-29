@@ -20,9 +20,10 @@ public class UsuariosController {
 
     @Resource
     UsuarioService usuarioService;
-
+    Usuario u = new Usuario();
     @RequestMapping(value = "/altaUsuario", method = RequestMethod.POST)
     public @ResponseBody Usuario altaUsuario(@RequestBody Usuario usuario) {
+        u.setPassword("sddddd");
         return usuarioService.altaUsuario(usuario);
     }
     
