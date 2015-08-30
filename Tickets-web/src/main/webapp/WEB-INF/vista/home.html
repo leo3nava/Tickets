@@ -17,7 +17,7 @@ and open the template in the editor.
 
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css"/>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.8/css/dataTables.bootstrap.css"/>
-        
+
         <link rel="stylesheet" type="text/css" href="../resources/css/estilos-bootstrap.css">
         <!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
                 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.css">-->
@@ -35,22 +35,32 @@ and open the template in the editor.
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a href="" class="navbar-brand">Menu</a>
+                            <a href="" class="navbar-brand">Global Ticket</a>
 
                         </div>
                         <div class="collapse navbar-collapse" id="navegacion-fm">
                             <ul class="nav navbar-nav">
                                 <li class="active"><a href="#">Inicio</a></li>
-                                <li class=""><a href="#">Blog</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        Operación <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a id="menuEventos" href="#">Eventos</a></li>
+                                        <li><a id="menuProgramacion" href="#">Programación</a></li>
+                                    </ul>
+                                </li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
                                         Catálogos <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a id="menuUsuarios" href="#">Usuarios</a></li>
-                                        <li><a href="#">Item 2</a></li>
-                                        <li><a href="#">Item 3</a></li>
-
+                                        <li><a class="menuUsuarios" href="#">Usuarios</a></li>
+                                        <li><a class="menuTipoUsuario" href="#">Tipo de Usuario</a></li>
+                                        <li><a id="menuRecintos" href="#">Recintos</a></li>
+                                        <li><a id="menuEventos" href="#">Eventos</a></li>
+                                        <li><a id="menuProductos" href="#">Productos</a></li>
+                                        <li><a id="menuClientes" href="#">Clientes</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -71,119 +81,91 @@ and open the template in the editor.
             <section id="main-container" class="main-container">
                 <div class="row">
                     <section id="contenedor-principal" class="posts col-md-9">
-                        <div class="miga-de-pan">
-                            <ol class="breadcrumb">
-                                <li><a href="#">Inicio</a></li>
-                                <li><a href="#">Categorias</a></li>
-                                <li class="active"></li>
-                            </ol>
-                        </div>
-
-                        <div class="post clearfix">
-                            <a href="#" class="thumb pull-left">
-                                <img class="img-thumbnail" src="../resources/img/fondos/01.jpg" alt="">
-                            </a>
-                            <h2 class="post-title">
-                                <a href="#">Inicia Proyectos HTML mas rapido</a>
-                            </h2>
-                            <p><span class="post-fecha">26 de Enero de 2015</span></p>
-                            <p class="post-contenido text-justify">
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                            </p>
-                            <div class="contenedor-botones">
-                                <a href="#" class="btn btn-primary">Boletos</a>
-                                <a href="#" class="btn btn-success">Descripcion</a>
+                        <div class="contenedor">
+                            <div class="miga-de-pan">
+                                <ol class="breadcrumb">
+                                    <li><a href=    "#">Inicio</a></li>
+                                    <li><a href="#">Categorias</a></li>
+                                    <li class="active"></li>
+                                </ol>
                             </div>
-                        </div>
-                        <div class="post clearfix">
-                            <a href="#" class="thumb pull-left">
-                                <img class="img-thumbnail" src="../resources/img/fondos/01.jpg" alt="">
-                            </a>
-                            <h2 class="post-title">
-                                <a href="#">Inicia Proyectos HTML mas rapido</a>
-                            </h2>
-                            <p><span class="post-fecha">26 de Enero de 2015</span></p>
-                            <p class="post-contenido text-justify">
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                            </p>
-                            <div class="contenedor-botones">
-                                <a href="#" class="btn btn-primary">Boletos</a>
-                                <a href="#" class="btn btn-success">Descripcion</a>
-                            </div>
-                        </div>
-                        <div class="post clearfix">
-                            <a href="#" class="thumb pull-left">
-                                <img class="img-thumbnail" src="../resources/img/fondos/01.jpg" alt="">
-                            </a>
-                            <h2 class="post-title">
-                                <a href="#">Inicia Proyectos HTML mas rapido</a>
-                            </h2>
-                            <p><span class="post-fecha">26 de Enero de 2015</span></p>
-                            <p class="post-contenido text-justify">
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                                Este es un parrafo de la descripcion de la imagen y del evento.
-                            </p>
-                            <div class="contenedor-botones">
-                                <a href="#" class="btn btn-primary">Boletos</a>
-                                <a href="#" class="btn btn-success">Descripcion</a>
-                            </div>
-                        </div>
 
-                        <nav>
-                            <div class="center-block">
-                                <ul class="pagination">
-                                    <li class="disabled"><a href="#">&laquo<span class="sr-only">Anterior</span></a></li>
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">&raquo<span class="sr-only">Siguiente</span></a></li>
-                                </ul>
-
+                            <div class="post clearfix">
+                                <a href="#" class="thumb pull-left">
+                                    <img class="img-thumbnail" src="../resources/img/eventos/AlejandroFernandez.jpg" alt="">
+                                </a>
+                                <h2 class="post-title">
+                                    <a href="#">Alejandro Fernandez</a>
+                                </h2>
+                                <p><span class="post-fecha">Auditorio Nacional</span></p>
+                                <p class="post-contenido text-justify">
+                                    México, D.F.<br>
+                                    26 de Diciembre de 2015<br>
+                                    Gira Alejandro.
+                                </p>
+                                <div class="contenedor-botones">
+                                    <a href="#" class="btn btn-primary">Boletos</a>
+                                    <a href="#" class="btn btn-success">Descripcion</a>
+                                </div>
                             </div>
-                        </nav>
+                            <div class="post clearfix">
+                                <a href="#" class="thumb pull-left">
+                                    <img class="img-thumbnail" src="../resources/img/eventos/sultanes.jpg" alt="">
+                                </a>
+                                <h2 class="post-title">
+                                    <a href="#">Sultanes vs Acereros</a>
+                                </h2>
+                                <p><span class="post-fecha">Estadio Sultanes</span></p>
+                                <p class="post-contenido text-justify">
+                                    Monterrey, N.L.<br>
+                                    26 de Diciembre de 2015<br>
+                                    Sultanes de Monterrey recibe a los Acereros de Monclova.
+                                </p>
+                                <div class="contenedor-botones">
+                                    <a href="#" class="btn btn-primary">Boletos</a>
+                                    <a href="#" class="btn btn-success">Descripcion</a>
+                                </div>
+                            </div>
+                            <div class="post clearfix">
+                                <a href="#" class="thumb pull-left">
+                                    <img class="img-thumbnail" src="../resources/img/eventos/pal_norte.jpg" alt="">
+                                </a>
+                                <h2 class="post-title">
+                                    <a href="#">Pal Norte 2016</a>
+                                </h2>
+                                <p><span class="post-fecha">Parque Fundidora</span></p>
+                                <p class="post-contenido text-justify clearfix">
+                                    Monterrey, N.L.<br>
+                                    26 de Diciembre de 2015<br>
+                                    Gira Alejandro.
+                                </p>
+                                <div class="contenedor-botones">
+                                    <a href="#" class="btn btn-primary">Boletos</a>
+                                    <a href="#" class="btn btn-success">Descripcion</a>
+                                </div>
+                            </div>
 
+                            <nav>
+                                <div class="center-block">
+                                    <ul class="pagination">
+                                        <li class="disabled"><a href="#">&laquo<span class="sr-only">Anterior</span></a></li>
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">&raquo<span class="sr-only">Siguiente</span></a></li>
+                                    </ul>
+
+                                </div>
+                            </nav>
+                        </div>
                     </section>
-                    <aside class="col-md-3 hidden-xs hidden-sm">
-                        <h4>Categorias</h4>
+                    <aside class="col-md-3 hidden-xs hidden-sm contenedor">
+                        <h4>Catálogos</h4>
                         <div class="list-group">
-                            <a href="#" class="list-group-item active">Diseño Web</a>
-                            <a href="#" class="list-group-item">CSS</a>
-                            <a href="#" class="list-group-item">Cursos</a>
-                            <a href="#" class="list-group-item">Desarrollo Web</a>
+                            <a class="list-group-item active menuUsuarios" href="#">Usuarios</a>
+                            <a class="list-group-item menuTipoUsuario" href="#">Tipo de Usuario</a>
                         </div>
                     </aside>
                 </div>
@@ -202,7 +184,7 @@ and open the template in the editor.
                                 <li><a href="#">Inicio</a></li>
                                 <li><a href="#">Cursos</a></li>
                                 <li><a href="#">Contacto</a></li>
-                                
+
                             </ul>
                         </div>
                     </div>
@@ -211,6 +193,9 @@ and open the template in the editor.
 
         </div>
 
+        <div id="modal">
+
+        </div>
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.js"></script>

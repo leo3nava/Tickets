@@ -23,13 +23,25 @@ $(document).ready(function() {
             includeJavascript('../resources/js/usuarios.js');
         });
     });
-    $('#menuUsuarios').click(function(){ 
+    $('.menuUsuarios').click(function(){ 
         $("#contenedor-principal").load("../catalogos/usuarios.html", function() {
-            includeJavascript('../resources/js/usuarios.js');
+            $("#modal").load("../catalogos/usuariosModal.html", function() {
+                includeJavascript('../resources/js/usuarios.js');
+            });
         });
         $('#jumbotron').hide();
         return false;
-    });    
+    });
+    
+    $('.menuTipoUsuario').click(function(){ 
+        $("#contenedor-principal").load("../catalogos/tipoUsuario.html", function() {
+            $("#modal").load("../catalogos/tipoUsuarioModal.html", function() {
+                includeJavascript('../resources/js/catalogos/tipoUsuario.js');
+            });
+        });
+        $('#jumbotron').hide();
+        return false;
+    }); 
 });
 
 

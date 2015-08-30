@@ -10,10 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- *
- * @author eduardo.chavez
- */
 @Controller
 @RequestMapping("/usuarios")
 public class UsuariosController {
