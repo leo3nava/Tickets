@@ -5,13 +5,8 @@
  */
 package com.tickets.web.controllers;
 
-import com.tickets.services.UsuarioService;
-import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -23,10 +18,16 @@ public class HomeController {
     //@Resource
     //UsuarioService usuarioService;
     
+    @RequestMapping(value = "/index")
+    public String index() {
+        System.out.println("Se entra al Home Controller Correctamente");
+        return "index";
+    }
+    
     @RequestMapping(value = "/home")
     public String home() {
         System.out.println("Se entra al Home Controller Correctamente");
-        return "index";
+        return "home";
     }
     
     @RequestMapping(value = "/portal")

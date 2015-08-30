@@ -23,7 +23,15 @@ $(document).ready(function() {
             includeJavascript('../resources/js/usuarios.js');
         });
     });
+    $('#menuUsuarios').click(function(){ 
+        $("#contenedor-principal").load("../catalogos/usuarios.html", function() {
+            includeJavascript('../resources/js/usuarios.js');
+        });
+        $('#jumbotron').hide();
+        return false;
+    });    
 });
+
 
 function includeJavascript(src) {
     if (document.createElement && document.getElementsByTagName) {

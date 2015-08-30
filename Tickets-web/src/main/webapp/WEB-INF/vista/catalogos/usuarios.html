@@ -1,46 +1,28 @@
-﻿<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <div id="content">
 
-    <div class="container">
-        <div class="row clearfix seccion">
-            <form>
-                <div class="form-group">
-                    <label for="codigoProducto">Codigo</label>
-                    <input class="form-control" id="codigoProducto" placeholder="Codigo">
-                    <a id="btnAgregaProducto" class="btn btn-default pull-left">Buscar</a>
-                </div>
-            </form>
-            <div class="row clearfix">
-                <div class="col-md-12 column">
-                    <table class="table table-fixed" id="tbl_usuarios">
-                        <thead class="bg-primary">
-                            <tr>
-                                <th class="col-md-1 text-center">Id</th>
-                                <th class="col-md-3 text-center">Nombre </th>
-                                <th class="col-md-2 text-center">Usuario</th>
-                                <th class="col-md-2 text-center">Nombre Corto</th>
-                                <th class="col-md-2 text-center">Tipo Usuario</th>
-                                <th class="col-md-1 text-center"></th>
-                                <th class="col-md-1 text-center"></th>
-                            </tr>
+    <h2 class="text-center">Catálogo de Usuarios</h2>
+    <div class="table-responsive">
+        <table class="table table-hover" id="tbl_usuarios">
+            <thead class="bg-primary">
+                <tr>
+                    <th class="col-md-1 hidden-sm hidden-xs text-center">Id</th>
+                    <th class="col-md-3 text-center">Nombre </th>
+                    <th class="col-md-2 text-center">Usuario</th>
+                    <th class="col-md-2 text-center">Nombre Corto</th>
+                    <th class="col-md-2 text-center">Tipo Usuario</th>
+                    <th class="col-md-1 text-center"></th>
+                    <th class="col-md-1 text-center"></th>
+                </tr>
 
-                        </thead>
-                        <tbody>
-                            
-                        </tbody>
-                    </table>
-                </div>
+            </thead>
+            <tbody>
 
-                <button type="button" id="btnAgregar" class="btn btn-primary">Agregar</button>
-
-            </div>
-        </div>
+            </tbody>
+        </table>
     </div>
+
+    <button type="button" id="btnAgregar" class="btn btn-primary">Agregar</button>
+
 
 </div>
 
@@ -57,41 +39,55 @@ and open the template in the editor.
                     <input type="hidden" class="form-control" id="usuario_id" >
 
                     <div class="form-group">
-                        <label for="usuario_nombre" class="control-label col-sm-2">Nombre:</label>
-                        <input type="text" class="form-control col-sm-10" id="usuario_nombre" placeholder="Nombre">
+                        <label for="usuario_nombre" class="control-label col-md-4">Nombre:</label>
+                        <div class="col-md-8">                            
+                            <input type="text" class="form-control" id="usuario_nombre" placeholder="Nombre">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="usuario_apellido" class="control-label">Apellido:</label>
-                        <input class="form-control" id="usuario_apellido" placeholder="Apellido">
+                        <label for="usuario_apellido" class="control-label col-md-4">Apellido:</label>
+                        <div class="col-md-8">   
+                            <input class="form-control" id="usuario_apellido" placeholder="Apellido">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="usuario_username" class="control-label">Usuario:</label>
-                        <input class="form-control" id="usuario_username" placeholder="Usuario">
+                        <label for="usuario_username" class="control-label col-md-4">Usuario:</label>
+                        <div class="col-md-8">   
+                            <input class="form-control" id="usuario_username" placeholder="Usuario">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="usuario_password" class="control-label">Password:</label>
-                        <input class="form-control" id="usuario_password" placeholder="Password">
+                        <label for="usuario_password" class="control-label col-md-4">Password:</label>
+                        <div class="col-md-8">   
+                            <input class="form-control" id="usuario_password" placeholder="Password">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="usuario_password_valida" class="control-label">Repetir Password:</label>
-                        <input class="form-control" id="usuario_password_valida" placeholder="Repetir Password">
+                        <label for="usuario_password_valida" class="control-label col-md-4">Repetir Password:</label>
+                        <div class="col-md-8">   
+                            <input class="form-control" id="usuario_password_valida" placeholder="Repetir Password">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="usuario_nombre_corto" class="control-label">Nombre Corto:</label>
-                        <input class="form-control" id="usuario_nombre_corto" placeholder="Nombre Corto">
+                        <label for="usuario_nombre_corto" class="control-label col-md-4">Nombre Corto:</label>
+                        <div class="col-md-8">   
+                            <input class="form-control" id="usuario_nombre_corto" placeholder="Nombre Corto">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="usuario_tipo" class="control-label">Tipo Usuario:</label>
-                        <input class="form-control" id="usuario_tipo" placeholder="Tipo Usuario">
+                        <label for="usuario_tipo" class="control-label col-md-4">Tipo Usuario:</label>
+                        <div class="col-md-8">   
+                            <input class="form-control" id="usuario_tipo" placeholder="Tipo Usuario">
+                        </div>
                     </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <input id="accion" type="hidden" value=""/>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                <button id="alta_usuario" type="button" class="btn btn-primary">Aceptar</button>
+
+                <div class="modal-footer">
+                    <input id="accion" type="hidden" value=""/>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button id="alta_usuario" type="button" class="btn btn-primary">Aceptar</button>
+                </div>
             </div>
         </div>
-    </div>
 
-</div>
+    </div>

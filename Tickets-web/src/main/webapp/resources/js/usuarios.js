@@ -2,7 +2,7 @@
 $(document).ready(function () {
     /* Alta Producto */
     $('#alta_usuario').on('click', function (){
-        usuario($('#accion').val());
+        usuario();
     });
     
     $('#btnAgregar').on('click',function(){
@@ -33,7 +33,7 @@ function consultaUsuarios() {
             for (var i = 0; i < usuarios.length; i++) {
                 agregaLinea(usuarios[i]);
             }
-            $('#tbl_usuarios').DataTable();
+            //$('#tbl_usuarios').DataTable();
         },
         error: function () {
             alert('ERROR');
@@ -41,7 +41,8 @@ function consultaUsuarios() {
     });
 }
 
-function usuario(accion) {
+function usuario() {
+    var accion = $('#accion').val();
     var usuario = {};
     if(accion== 'alta'){
         delete usuario.id;
@@ -92,8 +93,8 @@ function actualizaEditar(usuario){
         + ' <td>'+ usuario.userName +'</td>'
         + ' <td>'+ usuario.nombreCorto +'</td>'
         + ' <td>'+ usuario.tipoUsuarioId +'</td>'
-        + ' <td><a   id="btnDel_'+usuario.id+'" class="delete_row pull-right btn btn-default">Eliminar</a></td>'
-        + ' <td><a   id="btnEdit_'+usuario.id+'" class="delete_row pull-right btn btn-default">Editar</a></td>');
+        + ' <td><a   id="btnDel_'+usuario.id+'" href="#" class="text-center"><span class="glyphicon glyphicon-remove"></span></a></td>'
+        + ' <td><a   id="btnEdit_'+usuario.id+'" href="#"  class="text-center"><span class="glyphicon glyphicon-pencil"></span></a></td>');
     $('#btnDel_'+usuario.id).click(eliminaUsuario(usuario.id));
     $('#btnEdit_'+usuario.id).click(actualizaUsuario(usuario.id, usuario.nombre, usuario.apellido, usuario.userName, usuario.password, usuario.nombreCorto, usuario.tipoUsuarioId));
     
@@ -128,13 +129,13 @@ function actualizaUsuario(id, nombre, apellido, userName, password, nombreCorto,
 var numeroLinea=1;
 function agregaLinea(usuario){
     $('#tbl_usuarios > tbody:last').append( '<tr id="fila_usuario_'+usuario.id+'">'
-        + '<td class="text-center"><label id="usuario_'+usuario.id+'" class="codigo">'+ usuario.id +'</label></td>'
+        + '<td class="hidden-sm hidden-xs text-center"><label id="usuario_'+usuario.id+'" class="codigo">'+ usuario.id +'</label></td>'
         + ' <td>'+ usuario.nombre +'</td>'
         + ' <td>'+ usuario.userName +'</td>'
         + ' <td>'+ usuario.nombreCorto +'</td>'
-        + ' <td>'+ usuario.tipoUsuarioId +'</td>'
-        + ' <td><a   id="btnDel_'+usuario.id+'" class="delete_row pull-right btn btn-default">Eliminar</a></td>'
-        + ' <td><a   id="btnEdit_'+usuario.id+'" class="delete_row pull-right btn btn-default">Editar</a></td>'
+        + ' <td >'+ usuario.tipoUsuarioId +'</td>'
+        + ' <td><a   id="btnDel_'+usuario.id+'" href="#"  class="text-center"><span class="glyphicon glyphicon-remove"></a></td>'
+        + ' <td><a   id="btnEdit_'+usuario.id+'" href="#"  class="text-center"><span class="glyphicon glyphicon-pencil"></a></td>'
         + '</tr>');
     /*
     $('#addr'+numeroLinea).html('<td><label id="usuario_'+usuario.id+'" class="codigo">'+ usuario.id +'</label></td>'

@@ -1,0 +1,84 @@
+
+h2{
+    color: #fff;
+}
+body{
+    background: url('../img/fondos/background-black.jpg') no-repeat fixed center;
+    background-color: #ccc;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    padding-top: 80px;
+    color: #fff;
+}
+
+.jumbotron{
+    background: #ffc000;
+    padding: 20px 0;
+}
+
+.navbar{
+    margin-bottom: 0; 
+    background: #ffc000;
+}
+
+/* POST */
+
+.main{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.post{
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #999;
+}
+
+.post .post-title a{
+    color: #333;
+}
+
+.post .thumb{
+    margin-right: 10px;
+    width: 40%;
+}
+.post .thumb img{
+    width: 100%;
+}
+
+.post .contenedor-botones{
+    width: 100%;
+}
+
+/* Media Query */
+
+@media screen and (max-width: 768px){
+    .post .thumb{
+        width: 100%;
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
+}
+
+.navbar-inverse .navbar-nav > li > a{
+    color: #000;
+}
+
+.navbar-inverse .navbar-brand{
+    color: #000;
+}
+
+#content{
+    opacity: 0.90;
+    margin: 10px 0px 10px 0px;
+    padding: 15px 20px 20px 20px;
+    background-color: #ffc000;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
