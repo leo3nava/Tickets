@@ -16,9 +16,6 @@ public class EventoServiceImpl implements EventoService{
     @Autowired
     EventoDao usuarioDao;
     
-    @Autowired
-    InventarioDao inventarioDao;
-    
     @Override
     public Evento altaEvento(Evento usuario) {
         return usuarioDao.altaEvento(usuario);

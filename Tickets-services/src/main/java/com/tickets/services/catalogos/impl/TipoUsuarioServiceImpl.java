@@ -16,9 +16,6 @@ public class TipoUsuarioServiceImpl implements TipoUsuarioService{
     @Autowired
     TipoUsuarioDao usuarioDao;
     
-    @Autowired
-    InventarioDao inventarioDao;
-    
     @Override
     public TipoUsuario altaTipoUsuario(TipoUsuario usuario) {
         return usuarioDao.altaTipoUsuario(usuario);

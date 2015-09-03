@@ -20,7 +20,7 @@ $(document).ready(function () {
 
 function consultaUsuarios() {
     
-    var url = '../usuarios/consultaUsuarios';
+    var url = 'usuarios/consultaUsuarios';
     $.ajax({
         type: 'post',
         dataType: 'json',
@@ -62,7 +62,7 @@ function usuario() {
         usuario.tipoUsuarioId = $('#usuario_tipo').val();
     }
     
-    var url = '../usuarios/altaUsuario';
+    var url = 'usuarios/altaUsuario';
     $.ajax({
         type: 'post',
         dataType: 'json',
@@ -156,7 +156,7 @@ function agregaLinea(usuario){
 function eliminaUsuario(id) {
     return function() {
         var fila = $(this).closest('tr');  
-        var url = '../usuarios/bajaUsuario'
+        var url = 'usuarios/bajaUsuario'
         $.ajax({
             type: 'post',
             dataType: 'json',
