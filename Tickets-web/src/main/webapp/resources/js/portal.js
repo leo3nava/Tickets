@@ -13,20 +13,20 @@ $(document).ready(function() {
     });
     
     $('#botonadmin').on('click', function (){
-        $("#includedContent").load("../catalogos/producto.html", function() {
-            includeJavascript('../resources/js/producto.js');
+        $("#includedContent").load("catalogos/producto.html", function() {
+            includeJavascript('resources/js/producto.js');
         });
     });
     
     $('#btnUsuario').on('click', function (){
-        $("#includedContent").load("../catalogos/usuarios.html", function() {
-            includeJavascript('../resources/js/usuarios.js');
+        $("#includedContent").load("catalogos/usuarios.html", function() {
+            includeJavascript('resources/js/usuarios.js');
         });
     });
     $('.menuUsuarios').click(function(){ 
-        $("#contenedor-principal").load("../catalogos/usuarios.html", function() {
-            $("#modal").load("../catalogos/usuariosModal.html", function() {
-                includeJavascript('../resources/js/usuarios.js');
+        $("#contenedor-principal").load("catalogos/usuarios.html", function() {
+            $("#modal").load("catalogos/usuariosModal.html", function() {
+                includeJavascript('resources/js/usuarios.js');
             });
         });
         $('#jumbotron').hide();
@@ -34,9 +34,9 @@ $(document).ready(function() {
     });
     
     $('.menuTipoUsuario').click(function(){ 
-        $("#contenedor-principal").load("../catalogos/tipoUsuario.html", function() {
-            $("#modal").load("../catalogos/tipoUsuarioModal.html", function() {
-                includeJavascript('../resources/js/catalogos/tipoUsuario.js');
+        $("#contenedor-principal").load("catalogos/tipoUsuario.html", function() {
+            $("#modal").load("catalogos/tipoUsuarioModal.html", function() {
+                includeJavascript('resources/js/catalogos/tipoUsuario.js');
             });
         });
         $('#jumbotron').hide();

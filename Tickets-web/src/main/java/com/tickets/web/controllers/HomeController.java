@@ -4,54 +4,70 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/home")
+@RequestMapping("")
 public class HomeController {
+    String className = "HomeController";
+    String methodName = "";
     
-    @RequestMapping(value = "/index")
-    public String index() {
-        System.out.println("Se entra al Home Controller Correctamente");
-        return "index";
-    }
+//    @RequestMapping(value = "/")
+//    public String index() {
+//        methodName = className + " | index():: ";
+//        System.out.println(methodName);
+//        return "index";
+//    }
     
-    @RequestMapping(value = "/home")
+    @RequestMapping(value = "home")
     public String home() {
-        System.out.println("Se entra al Home Controller Correctamente");
+        methodName = className + " | home():: ";
+        System.out.println(methodName);
         return "home";
     }
     
-    @RequestMapping(value = "/portal")
-    public String portal() {
-        System.out.println("Se entra al Home Controller Correctamente: portal");
-        return "portal";
+    @RequestMapping(value = "")
+    public String portal1() {
+        methodName = className + " | portal():: ";
+        System.out.println(methodName);
+        return "portal/index";
     }
     
-    @RequestMapping(value = "/administracion")
+    @RequestMapping(value = "portal")
+    public String portal() {
+        methodName = className + " | portal():: ";
+        System.out.println(methodName);
+        return "portal/index";
+    }
+    
+    @RequestMapping(value = "menu")
+    public String menu() {
+        methodName = className + " | menu():: ";
+        System.out.println(methodName);
+        return "portal/menu";
+    }
+    
+    @RequestMapping(value = "contenido")
+    public String contenido() {
+        methodName = className + " | contenido():: ";
+        System.out.println(methodName);
+        return "portal/contenido";
+    }
+    
+    
+    
+    
+    
+    
+    
+//    
+//    @RequestMapping(value = "portal")
+//    public String portal() {
+//        methodName = className + " | portal():: ";
+//        System.out.println(methodName);
+//        return "portal";
+//    }
+    
+    @RequestMapping(value = "administracion")
     public String administracion() {
         System.out.println("Se entra al Home Controller Correctamente: administracion");
         return "administracion";
-    }
-    
-    @RequestMapping(value = "/punto_venta")
-    public String puntoVenta() {
-        System.out.println("Se entra al Home Controller Correctamente: punto_venta");
-        return "punto_venta";
-    } 
-    @RequestMapping(value = "/usuarios")
-    public String usuarios() {
-        System.out.println("Se entra al Home Controller Correctamente: usuarios");
-        return "punto_venta";
-    } 
-    /*
-    @RequestMapping(value = "/loginusuario", method = RequestMethod.POST)
-    public @ResponseBody UsuarioEntity loginUsuario(@RequestBody UsuarioEntity usuarioEntity){
-        usuarioService.loginUsuario(usuarioEntity);
-        usuarioEntity.setError(true);
-        return usuarioEntity;
-    }
-    
-    @RequestMapping(value="/registrausuario", method = RequestMethod.POST)
-    public @ResponseBody UsuarioEntity registraUsuario(@RequestBody UsuarioEntity usuarioEntity){
-        usuarioService.registraUsuario(usuarioEntity);
-        return usuarioEntity;
-    }*/
+    }   
 }
