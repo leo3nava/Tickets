@@ -9,10 +9,10 @@ public interface TipoUsuarioService {
     
     public TipoUsuario actualizaTipoUsuario(TipoUsuario usuario);
     
-    public TipoUsuario bajaTipoUsuario(Long id);
+    public TipoUsuario bajaTipoUsuario(Integer id);
     
     public List<TipoUsuario> consultaTipoUsuariosList();
     
-    public TipoUsuario consultaTipoUsuario(Long id);
+    public TipoUsuario consultaTipoUsuario(Integer id);
     
 }

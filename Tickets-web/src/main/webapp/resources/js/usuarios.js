@@ -7,6 +7,7 @@ $(document).ready(function () {
     
     $('#btnAgregar').on('click',function(){
         limpiarCampos();
+        consultaTipoUsuarioCombo();
         $('#exampleModal').modal('show');
         $('#accion').val('alta');
     });
@@ -17,6 +18,28 @@ $(document).ready(function () {
     consultaUsuarios();
     
 });
+
+function consultaTipoUsuarioCombo() {
+    
+    var url = 'tipoUsuario/consultaTipoUsuario';
+    $.ajax({
+        type: 'post',
+        dataType: 'json',
+        contentType: 'application/json',
+        url: url,
+        cache: false,
+        data: JSON.stringify(),
+        async: false,
+        success: function (tipoUsuario) {
+            for (var i = 0; i < tipoUsuario.length; i++) {
+                $("#cmbTipoUsuario").append('<option value="'+tipoUsuario[i].id+'">'+tipoUsuario[i].nombre+'</option>');
+            }
+        },
+        error: function () {
+            alert('ERROR');
+        }
+    });
+}
 
 function consultaUsuarios() {
     
@@ -33,7 +56,7 @@ function consultaUsuarios() {
             for (var i = 0; i < usuarios.length; i++) {
                 agregaLinea(usuarios[i]);
             }
-            //$('#tbl_usuarios').DataTable();
+        //$('#tbl_usuarios').DataTable();
         },
         error: function () {
             alert('ERROR');
@@ -46,21 +69,16 @@ function usuario() {
     var usuario = {};
     if(accion== 'alta'){
         delete usuario.id;
-        usuario.nombre = $('#usuario_nombre').val();
-        usuario.apellido = $('#usuario_apellido').val();
-        usuario.userName = $('#usuario_username').val();
-        usuario.password = $('#usuario_password').val();
-        usuario.nombreCorto = $('#usuario_nombre_corto').val();
-        usuario.tipoUsuarioId = $('#usuario_tipo').val();
     }else if(accion== 'editar'){
         usuario.id = $('#usuario_id').val();
-        usuario.nombre = $('#usuario_nombre').val();
-        usuario.apellido = $('#usuario_apellido').val();
-        usuario.userName = $('#usuario_username').val();
-        usuario.password = $('#usuario_password').val();
-        usuario.nombreCorto = $('#usuario_nombre_corto').val();
-        usuario.tipoUsuarioId = $('#usuario_tipo').val();
     }
+    usuario.nombre = $('#usuario_nombre').val();
+    usuario.apellido = $('#usuario_apellido').val();
+    usuario.userName = $('#usuario_username').val();
+    usuario.password = $('#usuario_password').val();
+    usuario.nombreCorto = $('#usuario_nombre_corto').val();
+    usuario.tipoUsuario = {};
+    usuario.tipoUsuario.id = $('#cmbTipoUsuario').val();
     
     var url = 'usuarios/altaUsuario';
     $.ajax({
@@ -92,7 +110,7 @@ function actualizaEditar(usuario){
         + ' <td>'+ usuario.nombre +'</td>'
         + ' <td>'+ usuario.userName +'</td>'
         + ' <td>'+ usuario.nombreCorto +'</td>'
-        + ' <td>'+ usuario.tipoUsuarioId +'</td>'
+        + ' <td>'+ usuario.tipoUsuario.nombre +'</td>'
         + ' <td><a   id="btnDel_'+usuario.id+'" href="#" class="text-center"><span class="glyphicon glyphicon-remove"></span></a></td>'
         + ' <td><a   id="btnEdit_'+usuario.id+'" href="#"  class="text-center"><span class="glyphicon glyphicon-pencil"></span></a></td>');
     $('#btnDel_'+usuario.id).click(eliminaUsuario(usuario.id));
@@ -114,13 +132,14 @@ function limpiarCampos(){
 
 function actualizaUsuario(id, nombre, apellido, userName, password, nombreCorto, tipoUsuarioId) {
     return function(){
+        consultaTipoUsuarioCombo();
         $('#usuario_id').val(id);
         $('#usuario_nombre').val(nombre);
         $('#usuario_apellido').val(apellido);
         $('#usuario_username').val(userName);
         $('#usuario_password').val(password);
         $('#usuario_nombre_corto').val(nombreCorto);
-        $('#usuario_tipo').val(tipoUsuarioId);
+        $('#cmbTipoUsuario').val(tipoUsuarioId);
         $('#accion').val('editar');
         $('#exampleModal').modal('show');
     }
@@ -133,23 +152,13 @@ function agregaLinea(usuario){
         + ' <td>'+ usuario.nombre +'</td>'
         + ' <td>'+ usuario.userName +'</td>'
         + ' <td>'+ usuario.nombreCorto +'</td>'
-        + ' <td >'+ usuario.tipoUsuarioId +'</td>'
+        + ' <td >'+ usuario.tipoUsuario.nombre +'</td>'
         + ' <td><a   id="btnDel_'+usuario.id+'" href="#"  class="text-center"><span class="glyphicon glyphicon-remove"></a></td>'
         + ' <td><a   id="btnEdit_'+usuario.id+'" href="#"  class="text-center"><span class="glyphicon glyphicon-pencil"></a></td>'
         + '</tr>');
-    /*
-    $('#addr'+numeroLinea).html('<td><label id="usuario_'+usuario.id+'" class="codigo">'+ usuario.id +'</label></td>'
-        + ' <td>'+ usuario.nombre +'</td>'
-        + ' <td>'+ usuario.userName +'</td>'
-        + ' <td>'+ usuario.nombreCorto +'</td>'
-        + ' <td>'+ usuario.tipoUsuarioId +'</td>'
-        + ' <td><a   id="btnDel_'+usuario.id+'" class="delete_row pull-right btn btn-default">Eliminar</a></td>'
-        + ' <td><a   id="btnEdit_'+usuario.id+'" class="delete_row pull-right btn btn-default">Editar</a></td>');*/
-
-    //$('#tbl_usuarios').append('<tr id="addr'+(numeroLinea+1)+'"></tr>');
     
     $('#btnDel_'+usuario.id).click(eliminaUsuario(usuario.id));
-    $('#btnEdit_'+usuario.id).click(actualizaUsuario(usuario.id, usuario.nombre, usuario.apellido, usuario.userName, usuario.password, usuario.nombreCorto, usuario.tipoUsuarioId));
+    $('#btnEdit_'+usuario.id).click(actualizaUsuario(usuario.id, usuario.nombre, usuario.apellido, usuario.userName, usuario.password, usuario.nombreCorto, usuario.tipoUsuario.id));
     numeroLinea++; 
 }
 

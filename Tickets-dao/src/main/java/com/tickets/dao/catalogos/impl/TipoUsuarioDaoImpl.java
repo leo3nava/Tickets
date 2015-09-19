@@ -33,7 +33,7 @@ public class TipoUsuarioDaoImpl implements TipoUsuarioDao {
     }
 
     @Override
-    public TipoUsuario bajaTipoUsuario(Long id) {
+    public TipoUsuario bajaTipoUsuario(Integer id) {
         Session session = sessionFactory.getCurrentSession();
         TipoUsuario usuario = consultaTipoUsuario(id);
         usuario.setActivo(0);
@@ -52,7 +52,7 @@ public class TipoUsuarioDaoImpl implements TipoUsuarioDao {
         return usuariosList;
     }
     @Override
-    public TipoUsuario consultaTipoUsuario(Long id){
+    public TipoUsuario consultaTipoUsuario(Integer id){
         Session session = sessionFactory.getCurrentSession();
         TipoUsuario usuario = (TipoUsuario) session.get(TipoUsuario.class, id);
         return usuario;

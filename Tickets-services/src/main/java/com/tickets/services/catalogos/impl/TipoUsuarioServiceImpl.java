@@ -1,7 +1,6 @@
 package com.tickets.services.catalogos.impl;
 
 import com.tickets.api.entitys.catalogos.TipoUsuario;
-import com.tickets.dao.InventarioDao;
 import com.tickets.dao.catalogos.TipoUsuarioDao;
 import com.tickets.services.catalogos.TipoUsuarioService;
 import java.util.List;
@@ -22,7 +21,7 @@ public class TipoUsuarioServiceImpl implements TipoUsuarioService{
     }
 
     @Override
-    public TipoUsuario bajaTipoUsuario(Long idTipoUsuario) {
+    public TipoUsuario bajaTipoUsuario(Integer idTipoUsuario) {
         return usuarioDao.bajaTipoUsuario(idTipoUsuario);
     }
 
@@ -38,7 +37,7 @@ public class TipoUsuarioServiceImpl implements TipoUsuarioService{
     }
     
     @Override
-    public TipoUsuario consultaTipoUsuario(Long id){
+    public TipoUsuario consultaTipoUsuario(Integer id){
         return usuarioDao.consultaTipoUsuario(id);
     }
 

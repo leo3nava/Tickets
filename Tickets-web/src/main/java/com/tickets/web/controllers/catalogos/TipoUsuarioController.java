@@ -28,7 +28,7 @@ public class TipoUsuarioController {
     }
     
     @RequestMapping(value = "/bajaTipoUsuario", method = RequestMethod.POST)
-    public @ResponseBody boolean bajaTipoUsuario(@RequestBody Long id) {
+    public @ResponseBody boolean bajaTipoUsuario(@RequestBody Integer id) {
         usuarioService.bajaTipoUsuario(id);
         return true;
     }

@@ -1,8 +1,10 @@
 package com.tickets.services.impl;
 
+import com.tickets.api.entitys.catalogos.TipoUsuario;
 import com.tickets.api.entitys.catalogos.Usuario;
 import com.tickets.dao.InventarioDao;
 import com.tickets.dao.UsuarioDao;
+import com.tickets.dao.catalogos.TipoUsuarioDao;
 import com.tickets.services.UsuarioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +19,15 @@ public class UsuariosServiceImpl implements UsuarioService{
     UsuarioDao usuarioDao;
     
     @Autowired
+    TipoUsuarioDao tipoUsuarioDao;
+    
+    @Autowired
     InventarioDao inventarioDao;
     
     @Override
     public Usuario altaUsuario(Usuario usuario) {
+        TipoUsuario tipoUsuario = tipoUsuarioDao.consultaTipoUsuario(usuario.getTipoUsuario().getId());
+        usuario.setTipoUsuario(tipoUsuario);
         return usuarioDao.altaUsuario(usuario);
     }
 

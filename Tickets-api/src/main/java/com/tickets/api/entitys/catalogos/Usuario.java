@@ -1,11 +1,13 @@
 package com.tickets.api.entitys.catalogos;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -19,7 +21,7 @@ public class Usuario implements Serializable{
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name="ID", unique=true, nullable=false)
-    private Long id;
+    private Integer id;
     
     @Column(name="NOMBRE")
     private String nombre;
@@ -36,19 +38,20 @@ public class Usuario implements Serializable{
     @Column(name="NOMBRE_CORTO")
     private String nombreCorto;
     
-    @Column(name="TIPO_USUARIO_ID")
-    private Long tipoUsuarioId;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private TipoUsuario tipoUsuario;
     
     @Column(name="activo")
     private Integer activo;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
+
 
     public String getUserName() {
         return userName;
@@ -74,12 +77,12 @@ public class Usuario implements Serializable{
         this.nombreCorto = nombreCorto;
     }
 
-    public Long getTipoUsuarioId() {
-        return tipoUsuarioId;
+    public TipoUsuario getTipoUsuario() {
+        return tipoUsuario;
     }
 
-    public void setTipoUsuarioId(Long tipoUsuarioId) {
-        this.tipoUsuarioId = tipoUsuarioId;
+    public void setTipoUsuario(TipoUsuario tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
     }    
 
     public String getNombre() {
