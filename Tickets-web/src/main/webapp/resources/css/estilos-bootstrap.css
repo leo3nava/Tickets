@@ -2,7 +2,7 @@
 h2{
     color: #fff;
 }
-body{
+/*body{
     background: url('../img/fondos/background-black.jpg') no-repeat fixed center;
     background-color: #ccc;
     -webkit-background-size: cover;
@@ -13,7 +13,7 @@ body{
     width: 100%;
     padding-top: 80px;
     color: #000;
-}
+}*/
 
 .jumbotron{
     background: #ffc000;

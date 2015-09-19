@@ -7,112 +7,69 @@ and open the template in the editor.
     Created on : 4/08/2015, 12:17:31 PM
     Author     : USUARIO
 */
-h1{
-    color: #000;
-    font-family: verdana;
-}
-ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-li {
-    display: block;
-    height: 25px;
-}
-a{
-    color: #fff;
-    font-family: verdana;
-    font-weight: bold; 
-    font-size: .8rem;
-    opacity: 0.4;
-    text-decoration: none;
-    padding: 1em;
-}
-.contenedor{
+.contentInclude100{
     position: absolute;
     height: 100%;
     width: 100%;
 }
-.columna{
+.contentInclude{
     position: absolute;
-    display: inline-block;
-    height: 100%;
+    width: 100%;
 }
-#columna1{
-    width: 20%;
-}
-#columna2{
+#contentIncludeContenido{
+    top: 51px;
     background-color: #ccc;
-    width: 80%;
-    left: 20%;
+    height: calc(100% - 51px);
 }
-#contentLateral{
-    background-color: #000;
-    background:  url('../img/lateral/fondo.jpg') repeat fixed;
-    text-align: center;
-}
-#principaldiv1{
+#contentIncludePrincipalLateral{
     position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: #000;
-}
-#principaldiv2{
-    position: absolute;
-    height: 50%;
-    width: 100%;
-    background-color: #ff0000; 
-    background-image: url("../img/fotosfondo/eduardosco_selfie.jpg"); 
-    -webkit-background-size: cover; 
-    -moz-background-size: cover; 
-    -o-background-size: cover; 
-    background-size: cover; 
-    background-position: center;
-    margin: 0 auto; 
-}
-#principaldiv3{
-    position: absolute;
-    top: 50%;
-    height: 50%;
-    width: 50%;
-}
-#principaldiv4{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    height: 50%;
-    width: 50%;
-}
-.columnaprincipal{
-    position: absolute;
+    width: 15%;
+    top: 0px;
+    background-color: #1c94c4;
     height: 100%;
 }
-#columnaPrincipal1{
-    width: 40%;
-}
-#columnaPrincipal2{
-    left: 40%;
-    width: 60%;
-}
-#fotoperfil{
+#contentIncludePrincipalContenido{
     position: absolute;
-    left: 20%;
-    border-top-left-radius: 10% 10%;
-    border-bottom-right-radius: 10% 10%;
-    border-bottom-left-radius: 10% 10%;
-    border-top-right-radius: 10% 10%;
+    width: 85%;
+    left: 15%;
+    top: 0px;
+    background-color: #d9edf7;
+    height: 100%;
 }
-#resumen{
+#contentIncludePrincipalContenidoEventos{
     position: absolute;
-    top: 50%;
-    width: 50%;
-    height: 30%;
-    background-color: #fff;
-    border-top-left-radius: 10px 10px;
-    border-bottom-right-radius: 10px 10px;
-    border-bottom-left-radius: 10px 10px;
-    border-top-right-radius: 10px 10px;
-    margin: 20px;    
+    width: 100%;
+    background-color: #333;
+    height: 40%;
+}
+#contentIncludePrincipalContenidoInferior{
+    position: absolute;
+    width: 100%;
+    background-color: #fdf5ce;
+    top: 40%;
+    height: 60%;
+}
+.contentIncludeEventos{
+    position: absolute;
+    width: 33.33%;
+    height: 100%;
+}
+#contentIncludeEvento1{
+    background-color: #EB5100;
+    left: 0%;
+}
+#contentIncludeEvento2{
+    background-color: #000000;
+    left: 33.33%;
+}
+#contentIncludeEvento3{
+    left: 66.66%;
+    background-color: #EB5100;
+}
+.evento{
+    position: absolute;
+    background: url('../img/eventos/palnorte/slide1.jpg') no-repeat center;
+    /*background-color: white;*/
+    width: 100%;
+    height: 100%;
 }

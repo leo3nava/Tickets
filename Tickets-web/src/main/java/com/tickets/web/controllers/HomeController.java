@@ -7,60 +7,75 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("")
 public class HomeController {
     String className = "HomeController";
-    String methodName = "";
     
-//    @RequestMapping(value = "/")
-//    public String index() {
-//        methodName = className + " | index():: ";
-//        System.out.println(methodName);
-//        return "index";
-//    }
-    
-    @RequestMapping(value = "home")
-    public String home() {
-        methodName = className + " | home():: ";
-        System.out.println(methodName);
-        return "home";
-    }
-    
-    @RequestMapping(value = "")
+    @RequestMapping(value = "/")
     public String portal1() {
-        methodName = className + " | portal():: ";
+        String methodName = className + " | portal():: ";
         System.out.println(methodName);
         return "portal/index";
     }
     
+    @RequestMapping(value = "home")
+    public String home() {
+        String methodName = className + " | home():: ";
+        System.out.println(methodName);
+        return "home";
+    }
+    
     @RequestMapping(value = "portal")
     public String portal() {
-        methodName = className + " | portal():: ";
+        String methodName = className + " | portal():: ";
         System.out.println(methodName);
         return "portal/index";
     }
     
     @RequestMapping(value = "menu")
     public String menu() {
-        methodName = className + " | menu():: ";
+        String methodName = className + " | menu():: ";
         System.out.println(methodName);
         return "portal/menu";
     }
     
-    @RequestMapping(value = "contenido")
-    public String contenido() {
-        methodName = className + " | contenido():: ";
+    @RequestMapping(value = "principal")
+    public String principal() {
+        String methodName = className + " | principal():: ";
         System.out.println(methodName);
-        return "portal/contenido";
+        return "portal/principal";
+    }
+    
+    @RequestMapping(value = "slider")
+    public String slider(){
+        String methodName = className + " | slider():: ";
+        System.out.println(methodName);
+        return "portal/principal/slider";
+    }
+    
+    @RequestMapping(value = "contenido")
+    public String contenido(){
+        String methodName = className + " | contenido():: ";
+        System.out.println(methodName);
+        return "portal/principal/contenido";
+    }
+    
+    @RequestMapping(value = "eventos")
+    public String eventos(){
+        String methodName = className + " | eventos():: ";
+        System.out.println(methodName);
+        return "portal/eventos";
     }
     
     
-    
-    
-    
-    
+    @RequestMapping(value = "evento1")
+    public String evento1(){
+        String methodName = className + " | evento1():: ";
+        System.out.println(methodName);
+        return "portal/eventos/evento1";
+    }
     
 //    
 //    @RequestMapping(value = "portal")
 //    public String portal() {
-//        methodName = className + " | portal():: ";
+//        String methodName = className + " | portal():: ";
 //        System.out.println(methodName);
 //        return "portal";
 //    }
