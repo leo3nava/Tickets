@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Global Tickets - Venta de Boletos</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="DevSymphony">
+        <meta name="description" content="Venta de Boletos"/>
+
+        <link rel="icon" type="image/png" href="resources/img/logotipos/icono.png" />
+        <!-- Latest compiled and minified CSS -->
+
+        <link rel="stylesheet" type="text/css" href="resources/css/bootstrap/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="resources/css/bootstrap/dataTables.bootstrap.css"/>
+
+        <link rel="stylesheet" type="text/css" href="resources/css/estilos-bootstrap.css">
+        <!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+                <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.css">-->
+    </head>
+    <body>
+        <div id="contenedor" class="container">
+            <header>
+
+                <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navegacion-fm">
+                                <span class="sr-only">Desplegar/Ocultar Menu</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a href="" class="navbar-brand">Global Ticket</a>
+
+                        </div>
+                        <div class="collapse navbar-collapse" id="navegacion-fm">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="#">Inicio</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        Operación <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="menuEventos" href="#">Eventos</a></li>
+                                        <li><a class="menuEventoFechas" href="#">Evento Fechas</a></li>
+                                        <li><a id="menuProgramacion" href="#">Programación</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        Catálogos <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="menuUsuarios" href="#">Usuarios</a></li>
+                                        <li><a class="menuTipoUsuario" href="#">Tipo de Usuario</a></li>
+                                        <li><a class="menuRecinto" href="#">Recintos</a></li>
+                                        <li><a class="menuEventos" href="#">Eventos</a></li>
+                                        <li><a id="menuProductos" href="#">Productos</a></li>
+                                        <li><a id="menuClientes" href="#">Clientes</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </nav>
+            </header>
+            <section id="jumbotron" class="jumbotron">
+                <div class="container">
+                    <h1>Global Ticket</h1>
+
+                </div>  
+            </section>
+
+            <section id="main-container" class="main-container">
+                <div class="row">
+                    <section id="contenedor-principal" class="posts col-md-9">
+                        <div class="contenedor">
+                            <div class="miga-de-pan">
+                                <ol class="breadcrumb">
+                                    <li><a href=    "#">Inicio</a></li>
+                                    <li><a href="#">Categorias</a></li>
+                                    <li class="active"></li>
+                                </ol>
+                            </div>
+
+                            <div class="post clearfix">
+                                <a href="#" class="thumb pull-left">
+                                    <img class="img-thumbnail" src="resources/img/eventos/AlejandroFernandez.jpg" alt="">
+                                </a>
+                                <h2 class="post-title">
+                                    <a href="#">Alejandro Fernandez</a>
+                                </h2>
+                                <p><span class="post-fecha">Auditorio Nacional</span></p>
+                                <p class="post-contenido text-justify">
+                                    México, D.F.<br>
+                                    26 de Diciembre de 2015<br>
+                                    Gira Alejandro.
+                                </p>
+                                <div class="contenedor-botones">
+                                    <a href="#" class="btn btn-primary">Boletos</a>
+                                    <a href="#" class="btn btn-success">Descripcion</a>
+                                </div>
+                            </div>
+                            <div class="post clearfix">
+                                <a href="#" class="thumb pull-left">
+                                    <img class="img-thumbnail" src="resources/img/eventos/sultanes.jpg" alt="">
+                                </a>
+                                <h2 class="post-title">
+                                    <a href="#">Sultanes vs Acereros</a>
+                                </h2>
+                                <p><span class="post-fecha">Estadio Sultanes</span></p>
+                                <p class="post-contenido text-justify">
+                                    Monterrey, N.L.<br>
+                                    26 de Diciembre de 2015<br>
+                                    Sultanes de Monterrey recibe a los Acereros de Monclova.
+                                </p>
+                                <div class="contenedor-botones">
+                                    <a href="#" class="btn btn-primary">Boletos</a>
+                                    <a href="#" class="btn btn-success">Descripcion</a>
+                                </div>
+                            </div>
+                            <div class="post clearfix">
+                                <a href="#" class="thumb pull-left">
+                                    <img class="img-thumbnail" src="resources/img/eventos/pal_norte.jpg" alt="">
+                                </a>
+                                <h2 class="post-title">
+                                    <a href="#">Pal Norte 2016</a>
+                                </h2>
+                                <p><span class="post-fecha">Parque Fundidora</span></p>
+                                <p class="post-contenido text-justify clearfix">
+                                    Monterrey, N.L.<br>
+                                    26 de Diciembre de 2015<br>
+                                    Gira Alejandro.
+                                </p>
+                                <div class="contenedor-botones">
+                                    <a href="#" class="btn btn-primary">Boletos</a>
+                                    <a href="#" class="btn btn-success">Descripcion</a>
+                                </div>
+                            </div>
+
+                            <nav>
+                                <div class="center-block">
+                                    <ul class="pagination">
+                                        <li class="disabled"><a href="#">&laquo<span class="sr-only">Anterior</span></a></li>
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">&raquo<span class="sr-only">Siguiente</span></a></li>
+                                    </ul>
+
+                                </div>
+                            </nav>
+                        </div>
+                    </section>
+                    <aside class="col-md-3 hidden-xs hidden-sm contenedor">
+                        <h4>Catálogos</h4>
+                        <div class="list-group">
+                            <a class="list-group-item active menuUsuarios" href="#">Usuarios</a>
+                            <a class="list-group-item menuTipoUsuario" href="#">Tipo de Usuario</a>
+                        </div>
+                    </aside>
+                </div>
+
+            </section>
+
+
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <p>Leonardo Nava</p>
+                        </div>
+                        <div class="col-xs-6">
+                            <ul class="list-inline text-right">
+                                <li><a href="#">Inicio</a></li>
+                                <li><a href="#">Cursos</a></li>
+                                <li><a href="#">Contacto</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+        <div id="modal">
+
+        </div>
+
+        <script type="text/javascript" src="resources/js/jquery/jquery-2.1.4.js"></script>
+        <script type="text/javascript" src="resources/js/bootstrap/bootstrap.js"></script>
+        <script type="text/javascript" src="resources/js/utils/jquery.dataTables.js"></script>
+        <script type="text/javascript" src="resources/js/bootstrap/dataTables.bootstrap.js"></script>
+
+        <script type="text/javascript" src="resources/js/punto_venta.js" ></script>
+        <script type="text/javascript" src="resources/js/portal.js" ></script>
+        <script type="text/javascript" src="resources/js/utils/jquery.form.js" ></script>
+
+    </body>
+</html>
