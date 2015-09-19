@@ -3,12 +3,18 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Eventos</h4>
+                <h4 class="modal-title" id="exampleModalLabel">Fechas de Eventos</h4>
             </div>
             <div class="modal-body" >
-                <form class="form-horizontal">
+                <form id="formRecinto" method="post" action="recinto/altaRecinto" class="form-horizontal">
                     <input type="hidden" class="form-control" id="evento_id" >
-
+                    
+                    <div class="form-group">
+                        <label for="titularId" class="control-label col-md-4">Titular: </label>
+                        <div class="col-md-8">                            
+                            <input type="text" class="form-control" id="titularId" placeholder="Titular">
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="nombre" class="control-label col-md-4">Nombre: </label>
                         <div class="col-md-8">                            
@@ -16,53 +22,41 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="titular" class="control-label col-md-4">Titular: </label>
+                        <label for="direccion" class="control-label col-md-4">Dirección: </label>
                         <div class="col-md-8">                            
-                            <input type="text" class="form-control" id="titular" placeholder="Titular">
+                            <input type="text" class="form-control datepicker" id="direccion" placeholder="Dirección">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="recinto" class="control-label col-md-4">Recinto: </label>
-                        <div class="col-md-8">      
-                            <select id="cmbRecinto" class="form-control"></select>
+                        <label for="telefono" class="control-label col-md-4">Teléfono:</label>
+                        <div class="col-md-8">                            
+                            <input type="text" class="form-control datepicker" id="telefono" placeholder="Teléfono">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="categoria" class="control-label col-md-4">Categoria: </label>
+                        <label for="ciudad" class="control-label col-md-4">Ciudad: </label>
                         <div class="col-md-8">                            
-                            <input type="text" class="form-control" id="categoria" placeholder="Categoria">
+                            <input type="text" class="form-control datepicker" id="ciudad" placeholder="Ciudad">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="comentario1" class="control-label col-md-4">Comentario 1:</label>
+                        <label for="email" class="control-label col-md-4">E-mail: </label>
                         <div class="col-md-8">                            
-                            <input type="text" class="form-control" id="comentario1" placeholder="Comentario 1">
+                            <input type="text" class="form-control" id="email" placeholder="E-mail">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="comentario2" class="control-label col-md-4">Comentario 2: </label>
+                        <label for="paginaWeb" class="control-label col-md-4">Pagina Web:</label>
                         <div class="col-md-8">                            
-                            <input type="text" class="form-control" id="comentario2" placeholder="Comentario 2">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="nombre_alterno" class="control-label col-md-4">Nombre Alterno: </label>
-                        <div class="col-md-8">                            
-                            <input type="text" class="form-control" id="nombre_alterno" placeholder="Nombre Alterno">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="descripcion" class="control-label col-md-4">Descripción:</label>
-                        <div class="col-md-8">                            
-                            <input type="text" class="form-control" id="descripcion" placeholder="Descripcion">
+                            <input type="text" class="form-control" name="paginaWeb" id="paginaWeb" placeholder="Pagina Web">
                         </div>
                     </div>
                 </form>
-
+                
                 <div class="modal-footer">
                     <input id="accion" type="hidden" value=""/>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    <button id="alta_evento" type="button" class="btn btn-primary">Aceptar</button>
+                    <button id="alta_recinto" type="button" class="btn btn-primary">Aceptar</button>
                 </div>
             </div>
         </div>

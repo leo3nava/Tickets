@@ -18,41 +18,41 @@ public class EventoDaoImpl implements EventoDao {
     SessionFactory sessionFactory;
 
     @Override
-    public Evento altaEvento(Evento usuario) {
+    public Evento altaEvento(Evento evento) {
         Session session = sessionFactory.getCurrentSession();
-        session.saveOrUpdate(usuario);
-        return usuario;
+        session.saveOrUpdate(evento);
+        return evento;
     }
 
     @Override
-    public Evento actualizaEvento(Evento usuario) {
+    public Evento actualizaEvento(Evento evento) {
         Session session = sessionFactory.getCurrentSession();
-        session.saveOrUpdate(usuario);
-        return usuario;
+        session.saveOrUpdate(evento);
+        return evento;
     }
 
     @Override
-    public Evento bajaEvento(Long id) {
+    public Evento bajaEvento(Integer id) {
         Session session = sessionFactory.getCurrentSession();
-        Evento usuario = consultaEvento(id);
-        session.saveOrUpdate(usuario);
+        Evento evento = consultaEvento(id);
+        session.saveOrUpdate(evento);
         
-        return usuario;
+        return evento;
     }
 
     @Override
     public List<Evento> consultaEventosList() {
         Session session = sessionFactory.openSession();
         Criteria criteria = session.createCriteria(Evento.class);
-        criteria.add(Restrictions.eq("activo", 1));
+        //criteria.add(Restrictions.eq("activo", 1));
         criteria.addOrder(Order.asc("nombre"));
-        List<Evento> usuariosList = criteria.list();
-        return usuariosList;
+        List<Evento> eventosList = criteria.list();
+        return eventosList;
     }
     @Override
-    public Evento consultaEvento(Long id){
+    public Evento consultaEvento(Integer id){
         Session session = sessionFactory.getCurrentSession();
-        Evento usuario = (Evento) session.get(Evento.class, id);
-        return usuario;
+        Evento evento = (Evento) session.get(Evento.class, id);
+        return evento;
     }
 }

@@ -42,6 +42,36 @@ $(document).ready(function() {
         $('#jumbotron').hide();
         return false;
     }); 
+    
+    $('.menuEventos').click(function(){ 
+        $("#contenedor-principal").load("catalogos/eventos.html", function() {
+            $("#modal").load("catalogos/eventosModal.html", function() {
+                includeJavascript('resources/js/catalogos/eventos.js');
+            });
+        });
+        $('#jumbotron').hide();
+        return false;
+    }); 
+    
+    $('.menuEventoFechas').click(function(){ 
+        $("#contenedor-principal").load("catalogos/eventoFechas.html", function() {
+            $("#modal").load("catalogos/eventoFechasModal.html", function() {
+                includeJavascript('resources/js/catalogos/eventoFechas.js');
+            });
+        });
+        $('#jumbotron').hide();
+        return false;
+    }); 
+    
+    $('.menuRecinto').click(function(){ 
+        $("#contenedor-principal").load("catalogos/recinto.html", function() {
+            $("#modal").load("catalogos/recintoModal.html", function() {
+                includeJavascript('resources/js/catalogos/recinto.js');
+            });
+        });
+        $('#jumbotron').hide();
+        return false;
+    }); 
 });
 
 
