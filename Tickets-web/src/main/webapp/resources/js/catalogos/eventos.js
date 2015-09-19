@@ -1,26 +1,24 @@
 
 $(document).ready(function () {
     /* Alta Producto */
-    $('#alta_usuario').on('click', function (){
-        usuario();
+    $('#alta_evento').on('click', function (){
+        evento();
     });
     
     $('#btnAgregar').on('click',function(){
         limpiarCampos();
+        consultaRecintoCombo();
         $('#exampleModal').modal('show');
         $('#accion').val('alta');
     });
     
-    $('#actualiza_producto').on('click', function (){
-        
-        });
-    consultaUsuarios();
+    consultaEventos();
     
 });
 
-function consultaUsuarios() {
+function consultaRecintoCombo() {
     
-    var url = 'tipoUsuario/consultaTipoUsuario';
+    var url = 'recinto/consultaRecinto';
     $.ajax({
         type: 'post',
         dataType: 'json',
@@ -28,9 +26,9 @@ function consultaUsuarios() {
         url: url,
         cache: false,
         data: JSON.stringify(),
-        success: function (usuarios) {
-            for (var i = 0; i < usuarios.length; i++) {
-                agregaLinea(usuarios[i]);
+        success: function (recinto) {
+            for (var i = 0; i < recinto.length; i++) {
+                $("#cmbRecinto").append('<option value="'+recinto[i].id+'">'+recinto[i].nombre+'</option>');
             }
         },
         error: function () {
@@ -39,30 +37,59 @@ function consultaUsuarios() {
     });
 }
 
-function usuario() {
-    var accion = $('#accion').val();
-    var usuario = {};
-    if(accion== 'alta'){
-        delete usuario.id;
-        usuario.nombre = $('#usuario_nombre').val();
-    }else if(accion== 'editar'){
-        usuario.id = $('#usuario_id').val();
-        usuario.nombre = $('#usuario_nombre').val();
-    }
+function consultaEventos() {
     
-    var url = 'tipoUsuario/altaTipoUsuario';
+    var url = 'eventos/consultaEvento';
     $.ajax({
         type: 'post',
         dataType: 'json',
         contentType: 'application/json',
         url: url,
         cache: false,
-        data: JSON.stringify(usuario),
-        success: function (usuario) {
+        data: JSON.stringify(),
+        success: function (evento) {
+            for (var i = 0; i < evento.length; i++) {
+                agregaLinea(evento[i]);
+            }
+        },
+        error: function () {
+            alert('ERROR');
+        }
+    });
+}
+
+function evento() {
+    var accion = $('#accion').val();
+    var evento = {};
+    if(accion== 'alta'){
+        delete evento.id;
+
+    }else if(accion== 'editar'){
+        evento.id = $('#evento_id').val();
+    }
+    evento.nombre = $('#nombre').val();
+    evento.titularId = $('#titular').val();
+    evento.recinto = {};
+    evento.recinto.id = $('#cmbRecinto').val();
+    evento.categoriaId = $('#categoria').val();
+    evento.comentario1 = $('#comentario1').val();
+    evento.comentario2 = $('#comentario2').val();
+    evento.nombreAlterno = $('#nombre_alterno').val();
+    evento.descripcion = $('#descripcion').val();
+    
+    var url = 'eventos/altaEvento';
+    $.ajax({
+        type: 'post',
+        dataType: 'json',
+        contentType: 'application/json',
+        url: url,
+        cache: false,
+        data: JSON.stringify(evento),
+        success: function (eventoResponse) {
             if(accion== 'alta'){
-                agregaLinea(usuario);
+                agregaLinea(eventoResponse);
             }else if(accion== 'editar'){
-                actualizaEditar(usuario);
+                actualizaEditar(eventoResponse);
             }
            
             $('#exampleModal').modal('hide');
@@ -73,52 +100,86 @@ function usuario() {
     });
 }
 
-function actualizaEditar(usuario){
-    var fila = $('#fila_usuario_'+usuario.id);
+function actualizaEditar(evento){
+    var fila = $('#fila_evento_'+evento.id);
     fila.empty();
-    fila.append('       <td class="text-center"><label id="usuario_'+usuario.id+'" class="codigo">'+ usuario.id +'</label></td>'
-        + ' <td>'+ usuario.nombre +'</td>'
-        + ' <td><a   id="btnDel_'+usuario.id+'" href="#" class="text-center"><span class="glyphicon glyphicon-remove"></span></a></td>'
-        + ' <td><a   id="btnEdit_'+usuario.id+'" href="#"  class="text-center"><span class="glyphicon glyphicon-pencil"></span></a></td>');
-    $('#btnDel_'+usuario.id).click(eliminaUsuario(usuario.id));
-    $('#btnEdit_'+usuario.id).click(actualizaUsuario(usuario.id, usuario.nombre, usuario.apellido, usuario.userName, usuario.password, usuario.nombreCorto, usuario.tipoUsuarioId));
+    fila.append('       <td class="text-center"><label id="evento_'+evento.id+'" class="codigo">'+ evento.id +'</label></td>'
+        + ' <td>'+ evento.nombre +'</td>'
+        + ' <td>'+ evento.titularId +'</td>'
+        + ' <td>'+ evento.recintoId +'</td>'
+        + ' <td>'+ evento.categoriaId +'</td>'
+        + ' <td>'+ evento.comentario1 +'</td>'
+        + ' <td>'+ evento.comentario2 +'</td>'
+        + ' <td>'+ evento.nombreAlterno +'</td>'
+        + ' <td>'+ evento.descripcion +'</td>'
+        + ' <td><a   id="btnDel_'+evento.id+'" href="#" class="text-center"><span class="glyphicon glyphicon-remove"></span></a></td>'
+        + ' <td><a   id="btnEdit_'+evento.id+'" href="#"  class="text-center"><span class="glyphicon glyphicon-pencil"></span></a></td>');
+    
+    $('#btnDel_'+evento.id).click(eliminaEvento(evento.id));
+    $('#btnEdit_'+evento.id).click(actualizaEvento(evento));
+
     
 
 }
 
 function limpiarCampos(){
     
-    $('#usuario_id').val('');
-    $('#usuario_nombre').val('');
+    $('#evento_id').val('');
+    $('#nombre').val('');
 }
 
-function actualizaUsuario(id, nombre, apellido, userName, password, nombreCorto, tipoUsuarioId) {
+function actualizaEvento(evento) {
     return function(){
-        $('#usuario_id').val(id);
-        $('#usuario_nombre').val(nombre);
+        $('#evento_id').val(evento.id);
+        $('#nombre').val(evento.nombre);
+        $('#titular').val(evento.titular);
+        $('#recinto').val(evento.recinto);
+        $('#categoria').val(evento.categoria);
+        $('#comentario1').val(evento.comentario1);
+        $('#comentario2').val(evento.comentario2);
+        $('#nombre_alterno').val(evento.nombre_alterno);
+        $('#descripcion').val(evento.descripcion);
+        
         $('#accion').val('editar');
         $('#exampleModal').modal('show');
     }
 }
 
 var numeroLinea=1;
-function agregaLinea(usuario){
-    $('#tbl_usuarios > tbody:last').append( '<tr id="fila_usuario_'+usuario.id+'">'
-        + '<td class="hidden-sm hidden-xs text-center"><label id="usuario_'+usuario.id+'" class="codigo">'+ usuario.id +'</label></td>'
-        + ' <td>'+ usuario.nombre +'</td>'
-        + ' <td><a   id="btnDel_'+usuario.id+'" href="#"  class="text-center"><span class="glyphicon glyphicon-remove"></a></td>'
-        + ' <td><a   id="btnEdit_'+usuario.id+'" href="#"  class="text-center"><span class="glyphicon glyphicon-pencil"></a></td>'
-        + '</tr>');
+function agregaLinea(evento){
+    $.each(evento, function(key, value){
+        if($.isArray(evento.value)){
+            $.each(value, function(key, value){
+                console.log(key, value);
+            }); 
+        }
+        /* $.each(value, function(key, value){
+            console.log(key, value);
+        });*/
+        console.log(key, value);
+    });
     
-    $('#btnDel_'+usuario.id).click(eliminaUsuario(usuario.id));
-    $('#btnEdit_'+usuario.id).click(actualizaUsuario(usuario.id, usuario.nombre, usuario.apellido, usuario.userName, usuario.password, usuario.nombreCorto, usuario.tipoUsuarioId));
+    $('#tbl_eventos > tbody:last').append( '<tr> <td class="text-center"><label id="evento_'+evento.id+'" class="codigo">'+ evento.id +'</label></td>'
+        + ' <td>'+ evento.nombre +'</td>'
+        + ' <td>'+ evento.titularId +'</td>'
+        + ' <td>'+ evento.recinto.nombre +'</td>'
+        + ' <td>'+ evento.categoriaId +'</td>'
+        + ' <td>'+ evento.comentario1 +'</td>'
+        + ' <td>'+ evento.comentario2 +'</td>'
+        + ' <td>'+ evento.nombreAlterno +'</td>'
+        + ' <td>'+ evento.descripcion +'</td>'
+        + ' <td><a   id="btnDel_'+evento.id+'" href="#" class="text-center"><span class="glyphicon glyphicon-remove"></span></a>'
+        + ' <a   id="btnEdit_'+evento.id+'" href="#"  class="text-center"><span class="glyphicon glyphicon-pencil"></span></a></td> </tr>');
+    
+    $('#btnDel_'+evento.id).click(eliminaEvento(evento.id));
+    $('#btnEdit_'+evento.id).click(actualizaEvento(evento));
     numeroLinea++; 
 }
 
-function eliminaUsuario(id) {
+function eliminaEvento(id) {
     return function() {
         var fila = $(this).closest('tr');  
-        var url = 'tipoUsuario/bajaTipoUsuario'
+        var url = 'eventos/bajaEvento'
         $.ajax({
             type: 'post',
             dataType: 'json',

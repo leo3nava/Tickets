@@ -15,8 +15,8 @@ and open the template in the editor.
         <link rel="icon" type="image/png" href="resources/img/logotipos/icono.png" />
         <!-- Latest compiled and minified CSS -->
 
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css"/>
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.8/css/dataTables.bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="resources/css/bootstrap/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="resources/css/bootstrap/dataTables.bootstrap.css"/>
 
         <link rel="stylesheet" type="text/css" href="resources/css/estilos-bootstrap.css">
         <!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -46,7 +46,8 @@ and open the template in the editor.
                                         Operación <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a id="menuEventos" href="#">Eventos</a></li>
+                                        <li><a class="menuEventos" href="#">Eventos</a></li>
+                                        <li><a class="menuEventoFechas" href="#">Evento Fechas</a></li>
                                         <li><a id="menuProgramacion" href="#">Programación</a></li>
                                     </ul>
                                 </li>
@@ -57,8 +58,8 @@ and open the template in the editor.
                                     <ul class="dropdown-menu">
                                         <li><a class="menuUsuarios" href="#">Usuarios</a></li>
                                         <li><a class="menuTipoUsuario" href="#">Tipo de Usuario</a></li>
-                                        <li><a id="menuRecintos" href="#">Recintos</a></li>
-                                        <li><a id="menuEventos" href="#">Eventos</a></li>
+                                        <li><a class="menuRecinto" href="#">Recintos</a></li>
+                                        <li><a class="menuEventos" href="#">Eventos</a></li>
                                         <li><a id="menuProductos" href="#">Productos</a></li>
                                         <li><a id="menuClientes" href="#">Clientes</a></li>
                                     </ul>
@@ -197,13 +198,14 @@ and open the template in the editor.
 
         </div>
 
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.js"></script>
-        <script type="text/javascript" src="https://cdn.datatables.net/1.10.8/js/jquery.dataTables.js"></script>
-        <script type="text/javascript" src="https://cdn.datatables.net/1.10.8/js/dataTables.bootstrap.js"></script>
+        <script type="text/javascript" src="resources/js/jquery/jquery-2.1.4.js"></script>
+        <script type="text/javascript" src="resources/js/bootstrap/bootstrap.js"></script>
+        <script type="text/javascript" src="resources/js/utils/jquery.dataTables.js"></script>
+        <script type="text/javascript" src="resources/js/bootstrap/dataTables.bootstrap.js"></script>
 
         <script type="text/javascript" src="resources/js/punto_venta.js" ></script>
         <script type="text/javascript" src="resources/js/portal.js" ></script>
+        <script type="text/javascript" src="resources/js/utils/jquery.form.js" ></script>
 
     </body>
 </html>

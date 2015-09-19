@@ -9,10 +9,10 @@ public interface EventoDao {
     
     public Evento actualizaEvento(Evento evento);
     
-    public Evento bajaEvento(Long id);
+    public Evento bajaEvento(Integer id);
     
     public List<Evento> consultaEventosList();
     
-    public Evento consultaEvento(Long id);
+    public Evento consultaEvento(Integer id);
     
 }

@@ -13,15 +13,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.UniqueConstraint;
+import org.hibernate.annotations.Type;
 
 /**
  *
  * @author lforero
  */
 @Entity
-@Table(name = "EVENTOS_FECHAS", catalog = "ticketes", uniqueConstraints = {
+@Table(name = "EVENTO_FECHAS", catalog = "tickets", uniqueConstraints = {
     @UniqueConstraint(columnNames = "ID")})
-public class EventosFechas {
+public class EventoFechas {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,7 +32,7 @@ public class EventosFechas {
     @Column(name = "NUMERO_EVENTO", nullable = false)
     private Integer numeroEvento;
     
-    @Column(name = "FECHA_EVENTO", nullable = false)
+    @Column(name = "FECHA_EVENTO")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaEvento;
     
@@ -52,6 +53,10 @@ public class EventosFechas {
     
     @Column(name = "TIPO_VENTAS_ID", nullable = false)
     private Integer tipoVentasId;
+    
+    @Type(type="org.hibernate.type.BinaryType")
+    @Column (name = "IMAGEN_EVENTO", length = 100000)
+    private byte[] imagenEvento;
 
     public Integer getId() {
         return id;
@@ -116,6 +121,13 @@ public class EventosFechas {
     public void setTipoVentasId(Integer tipoVentasId) {
         this.tipoVentasId = tipoVentasId;
     }
-    
+
+    public byte[] getImagenEvento() {
+        return imagenEvento;
+    }
+
+    public void setImagenEvento(byte[] imagenEvento) {
+        this.imagenEvento = imagenEvento;
+    }
     
 }

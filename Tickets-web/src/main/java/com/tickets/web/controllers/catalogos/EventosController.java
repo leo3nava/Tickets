@@ -18,8 +18,8 @@ public class EventosController {
    EventoService eventoService;
    
     @RequestMapping(value = "/altaEvento", method = RequestMethod.POST)
-    public @ResponseBody Evento altaEvento(@RequestBody Evento usuario) {
-        return eventoService.altaEvento(usuario);
+    public @ResponseBody Evento altaEvento(@RequestBody Evento evento) {
+        return eventoService.altaEvento(evento);
     }
     
     @RequestMapping(value = "/consultaEvento", method = RequestMethod.POST)
@@ -28,7 +28,7 @@ public class EventosController {
     }
     
     @RequestMapping(value = "/bajaEvento", method = RequestMethod.POST)
-    public @ResponseBody boolean bajaEvento(@RequestBody Long id) {
+    public @ResponseBody boolean bajaEvento(@RequestBody Integer id) {
         eventoService.bajaEvento(id);
         return true;
     }

@@ -3,66 +3,66 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Eventos</h4>
+                <h4 class="modal-title" id="exampleModalLabel">Fechas de Eventos</h4>
             </div>
             <div class="modal-body" >
-                <form class="form-horizontal">
+                <form id="formEventoFechas" method="post" action="eventoFechas/altaEventoFechas" class="form-horizontal">
                     <input type="hidden" class="form-control" id="evento_id" >
-
+                    
                     <div class="form-group">
-                        <label for="nombre" class="control-label col-md-4">Nombre: </label>
+                        <label for="numeroEvento" class="control-label col-md-4">Numero Evento: </label>
                         <div class="col-md-8">                            
-                            <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+                            <input type="text" class="form-control" id="numeroEvento" placeholder="Numero Evento">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="titular" class="control-label col-md-4">Titular: </label>
+                        <label for="fechaEvento" class="control-label col-md-4">Fecha: </label>
                         <div class="col-md-8">                            
-                            <input type="text" class="form-control" id="titular" placeholder="Titular">
+                            <input type="text" class="form-control" id="fechaEvento" placeholder="Fecha">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="recinto" class="control-label col-md-4">Recinto: </label>
-                        <div class="col-md-8">      
-                            <select id="cmbRecinto" class="form-control"></select>
+                        <label for="fechaEventoAlterna" class="control-label col-md-4">Fecha Alterna: </label>
+                        <div class="col-md-8">                            
+                            <input type="text" class="form-control datepicker" id="fechaEventoAlterna" placeholder="Fecha Alterna">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="categoria" class="control-label col-md-4">Categoria: </label>
+                        <label for="fechaInicioVenta" class="control-label col-md-4">Inicio Venta:</label>
                         <div class="col-md-8">                            
-                            <input type="text" class="form-control" id="categoria" placeholder="Categoria">
+                            <input type="text" class="form-control datepicker" id="fechaInicioVenta" placeholder="Inicio Venta">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="comentario1" class="control-label col-md-4">Comentario 1:</label>
+                        <label for="fechaFinVenta" class="control-label col-md-4">Fin Venta: </label>
                         <div class="col-md-8">                            
-                            <input type="text" class="form-control" id="comentario1" placeholder="Comentario 1">
+                            <input type="text" class="form-control datepicker" id="fechaFinVenta" placeholder="Fin Venta">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="comentario2" class="control-label col-md-4">Comentario 2: </label>
+                        <label for="activo" class="control-label col-md-4">Activo: </label>
                         <div class="col-md-8">                            
-                            <input type="text" class="form-control" id="comentario2" placeholder="Comentario 2">
+                            <input type="text" class="form-control" id="activo" placeholder="Activo">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="nombre_alterno" class="control-label col-md-4">Nombre Alterno: </label>
+                        <label for="tipoVentasId" class="control-label col-md-4">Tipo Venta:</label>
                         <div class="col-md-8">                            
-                            <input type="text" class="form-control" id="nombre_alterno" placeholder="Nombre Alterno">
+                            <input type="text" class="form-control" name="tipoVentasId" id="tipoVentasId" placeholder="Tipo Venta">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="descripcion" class="control-label col-md-4">Descripción:</label>
+                        <label for="imagen" class="control-label col-md-4">Imagen:</label>
                         <div class="col-md-8">                            
-                            <input type="text" class="form-control" id="descripcion" placeholder="Descripcion">
+                            <input type="file" class="form-control" name="file" id="file">
                         </div>
                     </div>
                 </form>
-
+                
                 <div class="modal-footer">
                     <input id="accion" type="hidden" value=""/>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    <button id="alta_evento" type="button" class="btn btn-primary">Aceptar</button>
+                    <button id="alta_evento_fechas" type="button" class="btn btn-primary">Aceptar</button>
                 </div>
             </div>
         </div>
