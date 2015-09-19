@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 $(document).ready(function() {
-    $("#includedMenu").load("menu");
-    $("#includedContenido").load("contenido");
+//    $("#includedPrincipalSlider").load("slider");
+    $("#includedPrincipalContenido").load("contenido");
+    $("#includedPrincipalEventos").load("eventos");
+    $("#includedEvento1").load("evento1");
 });
-

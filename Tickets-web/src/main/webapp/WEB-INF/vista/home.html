@@ -11,21 +11,22 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="DevSymphony">
         <meta name="description" content="Venta de Boletos"/>
-
         <link rel="icon" type="image/png" href="resources/img/logotipos/icono.png" />
         <!-- Latest compiled and minified CSS -->
-
-        <link rel="stylesheet" type="text/css" href="resources/css/bootstrap/bootstrap.css"/>
-        <link rel="stylesheet" type="text/css" href="resources/css/bootstrap/dataTables.bootstrap.css"/>
-
+<!--        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.8/css/dataTables.bootstrap.css"/>-->
+        <link rel="stylesheet" type="text/css" href="resources/css/utils/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="resources/css/utils/dataTables.bootstrap.css"/>
         <link rel="stylesheet" type="text/css" href="resources/css/estilos-bootstrap.css">
-        <!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-                <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.css">-->
     </head>
     <body>
         <div id="contenedor" class="container">
+            
+            
+            <!--------------------------------------------------------------------------------------------------------------->
+            
+            
             <header>
-
                 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
                     <div class="container-fluid">
                         <div class="navbar-header">
@@ -46,8 +47,7 @@ and open the template in the editor.
                                         Operación <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="menuEventos" href="#">Eventos</a></li>
-                                        <li><a class="menuEventoFechas" href="#">Evento Fechas</a></li>
+                                        <li><a id="menuEventos" href="#">Eventos</a></li>
                                         <li><a id="menuProgramacion" href="#">Programación</a></li>
                                     </ul>
                                 </li>
@@ -58,27 +58,42 @@ and open the template in the editor.
                                     <ul class="dropdown-menu">
                                         <li><a class="menuUsuarios" href="#">Usuarios</a></li>
                                         <li><a class="menuTipoUsuario" href="#">Tipo de Usuario</a></li>
-                                        <li><a class="menuRecinto" href="#">Recintos</a></li>
-                                        <li><a class="menuEventos" href="#">Eventos</a></li>
+                                        <li><a id="menuRecintos" href="#">Recintos</a></li>
+                                        <li><a id="menuEventos" href="#">Eventos</a></li>
                                         <li><a id="menuProductos" href="#">Productos</a></li>
                                         <li><a id="menuClientes" href="#">Clientes</a></li>
                                     </ul>
                                 </li>
                             </ul>
-
                         </div>
-
                     </div>
-
                 </nav>
             </header>
+            
+            
+            <!--------------------------------------------------------------------------------------------------------------->
+            
+<!--            
             <section id="jumbotron" class="jumbotron">
                 <div class="container">
-                    <h1>Global Ticket</h1>
-
+                    <div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 100%; height: 100%;">
+                         Slides Container 
+                        <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 100%; height: 100%;">
+                            <div><img u="image" src="resources/img/slider/city.jpg" /></div>
+                            <div><img u="image" src="resources/img/slider/desert.jpg" /></div>
+                            <div><img u="image" src="resources/img/slider/flower.jpg" /></div>
+                            <div><img u="image" src="resources/img/slider/flowers.jpg" /></div>
+                            <div><img u="image" src="resources/img/slider/night.jpg" /></div>
+                            <div><img u="image" src="resources/img/slider/sunset.jpg" /></div>
+                        </div>
+                    </div>
                 </div>  
             </section>
-
+            
+            -->
+            <!--------------------------------------------------------------------------------------------------------------->
+            
+            
             <section id="main-container" class="main-container">
                 <div class="row">
                     <section id="contenedor-principal" class="posts col-md-9">
@@ -157,7 +172,7 @@ and open the template in the editor.
                                         <li><a href="#">4</a></li>
                                         <li><a href="#">&raquo<span class="sr-only">Siguiente</span></a></li>
                                     </ul>
-
+                                    
                                 </div>
                             </nav>
                         </div>
@@ -170,10 +185,12 @@ and open the template in the editor.
                         </div>
                     </aside>
                 </div>
-
             </section>
-
-
+            
+            
+            <!--------------------------------------------------------------------------------------------------------------->
+            
+            
             <footer>
                 <div class="container">
                     <div class="row">
@@ -191,21 +208,29 @@ and open the template in the editor.
                     </div>
                 </div>
             </footer>
-
-        </div>
+            
+            
+            <!--------------------------------------------------------------------------------------------------------------->
+            
+            
+        <div>
 
         <div id="modal">
 
         </div>
 
-        <script type="text/javascript" src="resources/js/jquery/jquery-2.1.4.js"></script>
-        <script type="text/javascript" src="resources/js/bootstrap/bootstrap.js"></script>
+        <!--<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>-->
+        <script type="text/javascript" src="resources/js/utils/jquery-2.1.4.js" ></script>
+<!--        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.8/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.8/js/dataTables.bootstrap.js"></script>-->
+        <script type="text/javascript" src="resources/js/utils/bootstrap.js"></script>
         <script type="text/javascript" src="resources/js/utils/jquery.dataTables.js"></script>
-        <script type="text/javascript" src="resources/js/bootstrap/dataTables.bootstrap.js"></script>
-
-        <script type="text/javascript" src="resources/js/punto_venta.js" ></script>
-        <script type="text/javascript" src="resources/js/portal.js" ></script>
-        <script type="text/javascript" src="resources/js/utils/jquery.form.js" ></script>
+        <script type="text/javascript" src="resources/js/utils/dataTables.bootstrap.js"></script>
+        <!--<script type="text/javascript" src="resources/js/punto_venta.js" ></script>-->
+        <!--<script type="text/javascript" src="resources/js/portal.js" ></script>-->
+        <!--<script type="text/javascript" src="resources/js/efectosPortal.js"></script>-->
+        <!--<script type="text/javascript" src="resources/js/efects/jssor.slider.min.js"></script>-->
 
     </body>
 </html>
