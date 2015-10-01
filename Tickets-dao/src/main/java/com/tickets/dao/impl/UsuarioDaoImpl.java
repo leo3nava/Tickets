@@ -4,6 +4,7 @@ import com.tickets.api.entitys.catalogos.Usuario;
 import com.tickets.dao.UsuarioDao;
 import java.util.List;
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
@@ -56,5 +57,24 @@ public class UsuarioDaoImpl implements UsuarioDao {
         Session session = sessionFactory.getCurrentSession();
         Usuario usuario = (Usuario) session.get(Usuario.class, id);
         return usuario;
+    }
+    @Override
+    public boolean validaUsuarioExistente(String nombreUsuario){
+        System.out.println("DAO validaUsuarioExistente nombreUsuario: " + nombreUsuario);
+        Session session = sessionFactory.getCurrentSession();
+        Criteria criteria = session.createCriteria(Usuario.class);
+        criteria.add(Restrictions.eq("activo", 1));
+        criteria.add(Restrictions.eq("userName", nombreUsuario));
+        return !criteria.list().isEmpty();
+    }
+
+    public boolean loginUsuario(String nombreUsuario, String password) {
+        System.out.println("DAO loginUsuario nombreUsuario: " + nombreUsuario + ", password: " + password);
+        Session session = sessionFactory.getCurrentSession();
+        Criteria criteria = session.createCriteria(Usuario.class);
+        criteria.add(Restrictions.eq("activo", 1));
+        criteria.add(Restrictions.eq("userName", nombreUsuario));
+        criteria.add(Restrictions.eq("password", password));
+        return !criteria.list().isEmpty();
     }
 }

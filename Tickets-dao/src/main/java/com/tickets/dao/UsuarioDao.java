@@ -15,4 +15,7 @@ public interface UsuarioDao {
     
     public Usuario consultaUsuario(Long id);
     
+    public boolean validaUsuarioExistente(String nombreUsuario);
+    
+    public boolean loginUsuario(String nombreUsuario, String password);
 }

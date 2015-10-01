@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div id="fondonegrotransparent" class="contentInclude100">
+    
+</div>
+<div id="contentLogin" class="contentInclude">
+    <div class="modal-content">
+        <div class="modal-body">
+            <div id="divLogin">
+                <h3>Iniciar Sesión</h3>
+                <form role="form" action="#" method="post">
+                    <div class="form-group">
+                        <label for="Usuario">Usuario:</label>
+                        <input type="text" class="form-control" id="login_username">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control" id="login_password">
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox"> Remember me</label>
+                    </div>
+                    <button id="login_btn" type="button" class="btn btn-primary">Aceptar</button>
+                    <button id="login_to_register_btn" type="button" class="btn btn-primary">Registrarse</button>
+                </form>
+            </div>
+            <div id="divRegister">
+                <form role="form" >
+                    <div class="form-group">
+                        <label for="nombreusuario" class="control-label">Nombre de Usuario:</label>
+                        <input type="text" class="form-control" id="register_username" placeholder="Nombre" pattern="^[_A-z0-9]{1,}$" maxlength="15"  required/>
+                        <div id="validaUsername" class="errorForm">Dato no valido.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="control-label">Correo Electronico:</label>
+                        <input type="email" class="form-control" id="register_email" placeholder="E-mail" data-error="El correo es invalido" required/>
+                        <div id="validaEmail" class="errorForm">Dato no valido.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd" class="control-label">Password:</label>
+                        <input type="password" class="form-control" id="register_password" placeholder="Password" />
+                        <div id="validaPassword" class="errorForm">Dato no valido.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd" class="control-label">Confirmar Password:</label>
+                        <input type="password" class="form-control" id="register_password2" placeholder="Password" />
+                        <div id="validaPassword2" class="errorForm">Dato no valido.</div>
+                    </div>
+                    <div class="form-group">
+                        <button id="register_btn" type="button" class="btn btn-primary">Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="resources/js/utils/validar.js" ></script>
+    <script type="text/javascript" src="resources/js/utils/md5-min.js" ></script>
+    <script type="text/javascript" src="resources/js/login.js" ></script>

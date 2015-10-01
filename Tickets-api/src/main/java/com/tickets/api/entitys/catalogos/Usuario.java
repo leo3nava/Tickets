@@ -43,6 +43,17 @@ public class Usuario implements Serializable{
     
     @Column(name="activo")
     private Integer activo;
+    
+    @Column(name="email")
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public Integer getId() {
         return id;
@@ -107,7 +118,5 @@ public class Usuario implements Serializable{
 
     public void setActivo(Integer activo) {
         this.activo = activo;
-    }   
-
-    
+    }
 }

@@ -52,4 +52,14 @@ public class UsuariosServiceImpl implements UsuarioService{
         return usuarioDao.consultaUsuario(id);
     }
 
+    public boolean loginUsuario(Usuario usuario) {
+        System.out.println("Service loginUsuario usuario.getUserName(): " + usuario.getUserName() + ", usuario.getPassword(): " + usuario.getPassword());
+        return usuarioDao.loginUsuario(usuario.getUserName(), usuario.getPassword());
+    }
+
+    public boolean validaUsuarioExistente(String nombreUsuario) {
+        System.out.println("Service validaUsuarioExistente nombreUsuario: " + nombreUsuario);
+        return usuarioDao.validaUsuarioExistente(nombreUsuario);
+    }
+
 }
