@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+var login_to_register_btn = 0;
 $(document).ready(function () {
     init();
     /* Login */
@@ -23,8 +24,15 @@ $(document).ready(function () {
     });
     
     $('#login_to_register_btn').on('click', function (){
-        $('#divLogin').fadeOut();
-        $('#divRegister').fadeIn();
+        if(login_to_register_btn === 0){
+            $('#divLogin').fadeOut();
+            $('#divRegister').fadeIn();
+            login_to_register_btn = 1;
+        }else{
+            $('#divRegister').fadeOut();
+            $('#divLogin').fadeIn();
+            login_to_register_btn = 0;
+        }
     });
 });
 
@@ -114,7 +122,7 @@ function registraUsuario() {
     });
 }
 function validaRegistroUsuario(){
-    if($('#register_username').val()==null || $('#register_username').val()===''){
+    if($('#register_username').val()===null || $('#register_username').val()===''){
         alert('El Nombre de Usuario es obligatorio.');
         return false;
     }
@@ -126,7 +134,7 @@ function validaRegistroUsuario(){
         alert('El nombre de usuario ya se encuentra registrado.');
         return false;
     }
-    if($('#register_email').val()==null || $('#register_email').val()===''){
+    if($('#register_email').val()===null || $('#register_email').val()===''){
         alert('El E-mail es obligatorio.');
         return false;
     }
@@ -134,7 +142,7 @@ function validaRegistroUsuario(){
         alert('El Formato del E-mail es incorrecto.');
         return false;
     }
-    if($('#register_password').val()==null || $('#register_password').val()===''){
+    if($('#register_password').val()===null || $('#register_password').val()===''){
         alert('La Contraseña es obligatoria.');
         return false;
     }
@@ -142,7 +150,7 @@ function validaRegistroUsuario(){
         alert('El Formato del Password es incorrecto.');
         return false;
     }
-    if($('#register_password2').val()==null || $('#register_password2').val()===''){
+    if($('#register_password2').val()===null || $('#register_password2').val()===''){
         alert('Debes de confirmar la contraseña.');
         return false;
     }
