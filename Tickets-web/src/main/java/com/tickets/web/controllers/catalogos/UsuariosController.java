@@ -17,6 +17,8 @@ public class UsuariosController {
     @Resource
     UsuarioService usuarioService;
     Usuario u = new Usuario();
+    String className = "UsuariosController";
+    
     @RequestMapping(value = "/altaUsuario", method = RequestMethod.POST)
     public @ResponseBody Usuario altaUsuario(@RequestBody Usuario usuario) {
         return usuarioService.altaUsuario(usuario);
@@ -33,4 +35,17 @@ public class UsuariosController {
         return true;
     }
     
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public @ResponseBody boolean login(@RequestBody Usuario usuarioEntity){
+        String methodName = className + " | login():: ";
+        System.out.println(methodName + "Se inicializa correctamente");
+        return usuarioService.loginUsuario(usuarioEntity);
+    }
+    
+    @RequestMapping(value = "/validanombreusuario", method = RequestMethod.POST)
+    public @ResponseBody boolean validaUsuarioExistente(@RequestBody String nombreUsuario){
+        String methodName = className + " | validaUsuarioExistente():: ";
+        System.out.println(methodName + "Se inicializa correctamente");
+        return usuarioService.validaUsuarioExistente(nombreUsuario);
+    }
 }

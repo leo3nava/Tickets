@@ -6,17 +6,12 @@
 package com.tickets.services;
 
 import com.tickets.api.entitys.catalogos.Usuario;
-import com.tickets.services.*;
 import java.util.List;
 
-
-
 /**
- *
  * @author eduardo.chavez
  */
-public interface UsuarioService {  
-    
+public interface UsuarioService {
     public Usuario altaUsuario(Usuario usuario);
     
     public Usuario actualizaUsuario(Usuario usuario);
@@ -27,4 +22,7 @@ public interface UsuarioService {
     
     public Usuario consultaUsuario(Long id);
     
+    public boolean loginUsuario(Usuario usuario);
+    
+    public boolean validaUsuarioExistente(String nombreUsuario);
 }
