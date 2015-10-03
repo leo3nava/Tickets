@@ -3,15 +3,19 @@
 $(document).ready(function () {
     /* Alta Producto */
     $('#alta_evento_fechas').on('click', function (){
-        eventoFechas();
+        eventoFechasImagen();
     });
     
     $('#btnAgregar').on('click',function(){
         limpiarCampos();
+        consultaEventosCombo();
         $('#exampleModal').modal('show');
         $('#accion').val('alta');
         $('.datepicker').datepicker({
+            format: 'dd/mm/yyyy'
         });
+         
+        
     });
     
     $('#actualiza_producto').on('click', function (){
@@ -19,6 +23,7 @@ $(document).ready(function () {
         });
     consultaEventoFechas();
     
+    //$('.datepicker').datepicker();
 });
 
 function consultaEventoFechas() {
@@ -43,6 +48,52 @@ function consultaEventoFechas() {
 }
 
 function eventoFechas() {
+    var accion = $('#accion').val();
+    var eventoFechas = {};
+    if(accion== 'alta'){
+        delete eventoFechas.id;
+
+    }else if(accion== 'editar'){
+        eventoFechas.id = $('#evento_id').val();
+    }
+    eventoFechas.evento = {};
+    eventoFechas.evento.id = $('#cmbEvento').val();
+    eventoFechas.numeroEvento = $('#numeroEvento').val();
+    eventoFechas.fechaEvento = $('#fechaEvento').val();
+    eventoFechas.fechaEventoAlterna = $('#fechaEventoAlterna').val();
+    eventoFechas.fechaInicioVenta = $('#fechaInicioVenta').val();
+    eventoFechas.fechaFinVenta = $('#fechaFinVenta').val();
+    eventoFechas.activo = $('#activo').val();
+    eventoFechas.nombreAlterno = $('#nombreAlterno').val();
+    eventoFechas.descripcion = $('#descripcion').val();
+    eventoFechas.tipoVentasId = $('#tipoVentasId').val();
+    
+    
+    var url = 'eventoFechas/altaEventoFechas';
+    $.ajax({
+        type: 'post',
+        dataType: 'json',
+        contentType: 'application/json',
+        url: url,
+        cache: false,
+        data: JSON.stringify(eventoFechas),
+        success: function (eventoFechas) {
+            if(accion== 'alta'){
+                //agregaLinea(eventoResponse);
+                eventoFechasImagen(eventoFechas);
+            }else if(accion== 'editar'){
+                actualizaEditar(eventoFechas);
+            }
+           
+            $('#exampleModal').modal('hide');
+        },
+        error: function () {
+            alert('ERROR');
+        }
+    });
+}
+
+function eventoFechasImagen() {
     var accion = $('#accion').val();
     
     $("#formEventoFechas").ajaxForm({
@@ -148,4 +199,25 @@ function eliminaEvento(id) {
         });
          
     };
+}
+
+function consultaEventosCombo() {
+    
+    var url = 'eventos/consultaEvento';
+    $.ajax({
+        type: 'post',
+        dataType: 'json',
+        contentType: 'application/json',
+        url: url,
+        cache: false,
+        data: JSON.stringify(),
+        success: function (evento) {
+            for (var i = 0; i < evento.length; i++) {
+                $("#cmbEvento").append('<option value="'+evento[i].id+'">'+evento[i].nombre+'</option>');
+            }
+        },
+        error: function () {
+            alert('ERROR');
+        }
+    });
 }

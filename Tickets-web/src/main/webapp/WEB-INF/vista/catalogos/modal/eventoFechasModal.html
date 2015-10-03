@@ -6,43 +6,48 @@
                 <h4 class="modal-title" id="exampleModalLabel">Fechas de Eventos</h4>
             </div>
             <div class="modal-body" >
-                <form id="formEventoFechas" method="post" action="eventoFechas/altaEventoFechas" class="form-horizontal">
-                    <input type="hidden" class="form-control" id="evento_id" >
-                    
+                <form id="formEventoFechas" method="post" action="eventoFechas/altaEventoImagen" class="form-horizontal">
+                    <input type="hidden" class="form-control" id="evento_id" name="fechaEventoId" >
+                    <div class="form-group">
+                        <label for="cmbEvento" class="control-label col-md-4">Evento: </label>
+                        <div class="col-md-8">      
+                            <select id="cmbEvento" name="cmbEvento" class="form-control"></select>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="numeroEvento" class="control-label col-md-4">Numero Evento: </label>
                         <div class="col-md-8">                            
-                            <input type="text" class="form-control" id="numeroEvento" placeholder="Numero Evento">
+                            <input type="text" class="form-control" id="numeroEvento" name="numeroEvento" placeholder="Numero Evento">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="fechaEvento" class="control-label col-md-4">Fecha: </label>
                         <div class="col-md-8">                            
-                            <input type="text" class="form-control" id="fechaEvento" placeholder="Fecha">
+                            <input type="text" class="form-control datepicker" id="fechaEvento" name="fechaEvento" placeholder="Fecha">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="fechaEventoAlterna" class="control-label col-md-4">Fecha Alterna: </label>
                         <div class="col-md-8">                            
-                            <input type="text" class="form-control datepicker" id="fechaEventoAlterna" placeholder="Fecha Alterna">
+                            <input type="text" class="form-control datepicker" id="fechaEventoAlterna" name="fechaEventoAlterna" placeholder="Fecha Alterna">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="fechaInicioVenta" class="control-label col-md-4">Inicio Venta:</label>
                         <div class="col-md-8">                            
-                            <input type="text" class="form-control datepicker" id="fechaInicioVenta" placeholder="Inicio Venta">
+                            <input type="text" class="form-control datepicker" id="fechaInicioVenta" name="fechaInicioVenta" placeholder="Inicio Venta">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="fechaFinVenta" class="control-label col-md-4">Fin Venta: </label>
                         <div class="col-md-8">                            
-                            <input type="text" class="form-control datepicker" id="fechaFinVenta" placeholder="Fin Venta">
+                            <input type="text" class="form-control datepicker" id="fechaFinVenta" name="fechaFinVenta" placeholder="Fin Venta">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="activo" class="control-label col-md-4">Activo: </label>
                         <div class="col-md-8">                            
-                            <input type="text" class="form-control" id="activo" placeholder="Activo">
+                            <input type="text" class="form-control" id="activo" name="activo" placeholder="Activo">
                         </div>
                     </div>
                     <div class="form-group">
@@ -58,7 +63,7 @@
                         </div>
                     </div>
                 </form>
-                
+
                 <div class="modal-footer">
                     <input id="accion" type="hidden" value=""/>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

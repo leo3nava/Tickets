@@ -1,8 +1,9 @@
 package com.tickets.web.controllers.catalogos;
 
+import com.tickets.api.entitys.catalogos.Evento;
 import com.tickets.api.entitys.catalogos.EventoFechas;
 import com.tickets.services.catalogos.EventoFechasService;
-import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Iterator;
 import java.util.List;
 import javax.annotation.Resource;
@@ -21,11 +22,12 @@ public class EventoFechasController {
 
     @Resource
     EventoFechasService eventoFechasService;
-    /*
-     @RequestMapping(value = "/altaEventoFechas", method = RequestMethod.POST)
-     public @ResponseBody EventoFechas altaEvento(@RequestBody EventoFechas eventoFechas) {
-     return eventoFechasService.altaEventoFechas(eventoFechas);
-     }*/
+
+    @RequestMapping(value = "/altaEventoFechas", method = RequestMethod.POST)
+    public @ResponseBody
+    EventoFechas altaEventoFechas(@RequestBody EventoFechas eventoFechas) {
+        return eventoFechasService.altaEventoFechas(eventoFechas);
+    }
 
     @RequestMapping(value = "/consultaEventoFechas", method = RequestMethod.POST)
     public @ResponseBody
@@ -40,9 +42,9 @@ public class EventoFechasController {
         return true;
     }
 
-    @RequestMapping(value = "/altaEventoFechas", method = RequestMethod.POST)
+    @RequestMapping(value = "/altaEventoImagen", method = RequestMethod.POST)
     public @ResponseBody
-    EventoFechas altaEvento(MultipartHttpServletRequest request, HttpServletResponse response) {
+    EventoFechas altaEventoImagen(MultipartHttpServletRequest request, HttpServletResponse response) {
 
         EventoFechas eventoFechas = new EventoFechas();
         Iterator<String> itr = request.getFileNames();
@@ -51,18 +53,35 @@ public class EventoFechasController {
         System.out.println(mpf.getOriginalFilename() + " uploaded!");
 
         try {
-            eventoFechas.setActivo(1);
-            eventoFechas.setTipoVentasId(1);
+            System.out.println("Id " + request.getParameterValues("fechaEventoId")[0]);
+            String id = request.getParameterValues("fechaEventoId")[0];
+            if(id != null && !id.equals("")){
+                eventoFechas.setId(Integer.parseInt(request.getParameterValues("fechaEventoId")[0]));
+            }
+            Evento evento = new Evento();
+            evento.setId(Integer.parseInt(request.getParameterValues("cmbEvento")[0]));
+            eventoFechas.setEvento(evento);
+            
+            eventoFechas.setActivo(Integer.parseInt(request.getParameterValues("activo")[0]));
+            eventoFechas.setTipoVentasId(Integer.parseInt(request.getParameterValues("tipoVentasId")[0]));
+            eventoFechas.setNumeroEvento(Integer.parseInt(request.getParameterValues("numeroEvento")[0]));
+            
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+	
+            eventoFechas.setFechaEvento(formatter.parse(request.getParameterValues("fechaEvento")[0]));
+            eventoFechas.setFechaEventoAlterna(formatter.parse(request.getParameterValues("fechaEventoAlterna")[0]));
+            eventoFechas.setFechaFinVenta(formatter.parse(request.getParameterValues("fechaFinVenta")[0]));
+            eventoFechas.setFechaInicioVenta(formatter.parse(request.getParameterValues("fechaInicioVenta")[0]));
+            
             eventoFechas.setImagenEvento(mpf.getBytes());
-            eventoFechas.setNumeroEvento(1);
             //just temporary save file info into ufile
             System.out.println("lenght" + mpf.getBytes().length);
             /*ufile.length = mpf.getBytes().length;
-            ufile.bytes = mpf.getBytes();
-            ufile.type = mpf.getContentType();
-            ufile.name = mpf.getOriginalFilename();*/
+             ufile.bytes = mpf.getBytes();
+             ufile.type = mpf.getContentType();
+             ufile.name = mpf.getOriginalFilename();*/
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }

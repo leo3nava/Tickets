@@ -5,6 +5,7 @@ import com.tickets.api.entitys.catalogos.EventoFechas;
 import com.tickets.dao.catalogos.EventoFechasDao;
 import java.util.List;
 import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
@@ -46,7 +47,14 @@ public class EventoFechasDaoImpl implements EventoFechasDao {
         Criteria criteria = session.createCriteria(EventoFechas.class);
         //criteria.add(Restrictions.eq("activo", 1));
         //criteria.addOrder(Order.asc("nombre"));
-        List<EventoFechas> eventoFechasList = criteria.list();
+        //List<EventoFechas> eventoFechasList = criteria.list();
+        List<EventoFechas> eventoFechasList = session.createQuery("select new EventoFechas(id,numeroEvento, fechaEvento, fechaEventoAlterna, fechaInicioVenta, fechaFinVenta, activo, tipoVentasId) from EventoFechas")
+         .list();
+        
+        for (int i = 0; i < eventoFechasList.size(); i++) {
+            EventoFechas eventoFechas = (EventoFechas) eventoFechasList.get(i);
+            System.out.println(eventoFechas.getId());
+        }
         return eventoFechasList;
     }
     @Override

@@ -1,6 +1,8 @@
 package com.tickets.services.catalogos.impl;
 
+import com.tickets.api.entitys.catalogos.Evento;
 import com.tickets.api.entitys.catalogos.EventoFechas;
+import com.tickets.dao.catalogos.EventoDao;
 import com.tickets.dao.catalogos.EventoFechasDao;
 import com.tickets.services.catalogos.EventoFechasService;
 import java.util.List;
@@ -15,9 +17,15 @@ public class EventoFechasServiceImpl implements EventoFechasService{
     @Autowired
     EventoFechasDao eventoFechasDao;
     
+    @Autowired
+    EventoDao eventoDao;
+    
     @Override
-    public EventoFechas altaEventoFechas(EventoFechas usuario) {
-        return eventoFechasDao.altaEventoFechas(usuario);
+    public EventoFechas altaEventoFechas(EventoFechas eventoFechas) {
+        Evento evento = eventoDao.consultaEvento(eventoFechas.getEvento().getId());
+        eventoFechas.setEvento(evento);
+        evento.getEventoFechas().add(eventoFechas);
+        return eventoFechasDao.altaEventoFechas(eventoFechas);
     }
 
     @Override
@@ -27,13 +35,16 @@ public class EventoFechasServiceImpl implements EventoFechasService{
     
 
     @Override
-    public EventoFechas actualizaEventoFechas(EventoFechas usuario) {
-        return eventoFechasDao.actualizaEventoFechas(usuario);
+    public EventoFechas actualizaEventoFechas(EventoFechas eventoFechas) {
+        return eventoFechasDao.actualizaEventoFechas(eventoFechas);
     }
     
     @Override
     public List<EventoFechas> consultaEventoFechasList(){
-        return eventoFechasDao.consultaEventoFechasList();
+        List<EventoFechas> eventoFechasList = eventoFechasDao.consultaEventoFechasList();
+
+        
+        return eventoFechasList;
         
     }
     

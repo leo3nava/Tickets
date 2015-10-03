@@ -72,7 +72,90 @@ $(document).ready(function() {
         $('#jumbotron').hide();
         return false;
     }); 
+    
+    $('.menuMapas').click(function(){ 
+        $("#contenedor-principal").load("recintosMap/mapas.html", function() {
+            $("#modal").load("recintosMap/mapasModal.html", function() {
+                includeJavascript('resources/js/recintos/mapas.js');
+            });
+        });
+        $('#jumbotron').hide();
+        return false;
+    }); 
+    
+    $('.menuZonas').click(function(){ 
+        $("#contenedor-principal").load("recintosMap/zonas.html", function() {
+            $("#modal").load("recintosMap/zonasModal.html", function() {
+                includeJavascript('resources/js/recintos/zonas.js');
+            });
+        });
+        $('#jumbotron').hide();
+        return false;
+    }); 
+    
+    $('.menuAsientos').click(function(){ 
+        $("#contenedor-principal").load("recintosMap/asientos.html", function() {
+            $("#modal").load("recintosMap/asientosModal.html", function() {
+                includeJavascript('resources/js/recintos/asientos.js');
+            });
+        });
+        $('#jumbotron').hide();
+        return false;
+    }); 
+    
+    consultaPrincipalEventos();
 });
+
+function consultaPrincipalEventos() {
+    
+    var url = 'principal/consultaEventos';
+    $.ajax({
+        type: 'post',
+        dataType: 'json',
+        contentType: 'application/json',
+        url: url,
+        cache: false,
+        data: JSON.stringify(),
+        success: function (evento) {
+            for (var i = 0; i < evento.length; i++) {
+                agregaEvento(evento[i]);
+            }
+        },
+        error: function () {
+            alert('ERROR');
+        }
+    });
+}
+
+function agregaEvento(evento){            
+                          
+    for (var i = 0; i < evento.eventoFechas.length; i++) {
+        var src = "data:image/jpg;base64," +evento.eventoFechas[i].imagenEvento;
+    
+        $('#eventos').append( '<div class="post clearfix">'
+            + '     <a href="#" class="thumb pull-left">'
+            + '         <img class="img-thumbnail" src="'+src+'" alt="">'
+            + '     </a>'
+            + '     <h2 class="post-title">'
+            + '         <a href="#">'+evento.nombre+'</a>'
+            + '     </h2>'
+            + '     <p><span class="post-fecha">Auditorio Nacional</span></p>'
+            + '     <p class="post-contenido text-justify">'
+            + '         México, D.F.<br>'
+            + '         26 de Diciembre de 2015<br>'
+            + '         Gira Alejandro.'
+            + '     </p>'
+            + '     <div class="contenedor-botones">'
+            + '         <a href="#" class="btn btn-primary">Boletos</a>'
+            + '         <a href="#" class="btn btn-success">Descripcion</a>'
+            + '     </div>'
+            + ' </div>');
+    }
+    
+//$('#btnDel_'+evento.id).click(eliminaEvento(evento.id));
+//$('#btnEdit_'+evento.id).click(actualizaEvento(evento));
+//numeroLinea++; 
+}
 
 
 function includeJavascript(src) {

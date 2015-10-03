@@ -4,6 +4,9 @@
  */
 package com.tickets.api.entitys.catalogos;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,14 +15,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-/**
- *
- * @author lforero
- */
 @Entity
 @Table(name = "RECINTO", catalog = "tickets", uniqueConstraints = {
     @UniqueConstraint(columnNames = "ID")})
-public class Recinto {
+public class Recinto implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -99,4 +98,5 @@ public class Recinto {
     public void setPaginaWeb(String paginaWeb) {
         this.paginaWeb = paginaWeb;
     }
+
 }

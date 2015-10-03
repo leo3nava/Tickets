@@ -18,6 +18,7 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="resources/css/utils/bootstrap.css"/>
         <link rel="stylesheet" type="text/css" href="resources/css/utils/dataTables.bootstrap.css"/>
         <link rel="stylesheet" type="text/css" href="resources/css/estilos-bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/bootstrap/datepicker.css">
     </head>
     <body>
         <div id="contenedor" class="container">
@@ -65,6 +66,17 @@ and open the template in the editor.
                                         <li><a class="menuClientes" href="#">Clientes</a></li>
                                     </ul>
                                 </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        Recintos <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="menuRecitos" href="#">Recintos</a></li>
+                                        <li><a class="menuMapas" href="#">Mapas</a></li>
+                                        <li><a class="menuZonas" href="#">Zonas</a></li>
+                                        <li><a class="menuAsientos" href="#">Asientos</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -107,61 +119,8 @@ and open the template in the editor.
                                 </ol>
                             </div>
 
-                            <div class="post clearfix">
-                                <a href="#" class="thumb pull-left">
-                                    <img class="img-thumbnail" src="resources/img/eventos/AlejandroFernandez.jpg" alt="">
-                                </a>
-                                <h2 class="post-title">
-                                    <a href="#">Alejandro Fernandez</a>
-                                </h2>
-                                <p><span class="post-fecha">Auditorio Nacional</span></p>
-                                <p class="post-contenido text-justify">
-                                    México, D.F.<br>
-                                    26 de Diciembre de 2015<br>
-                                    Gira Alejandro.
-                                </p>
-                                <div class="contenedor-botones">
-                                    <a href="#" class="btn btn-primary">Boletos</a>
-                                    <a href="#" class="btn btn-success">Descripcion</a>
-                                </div>
-                            </div>
-                            <div class="post clearfix">
-                                <a href="#" class="thumb pull-left">
-                                    <img class="img-thumbnail" src="resources/img/eventos/sultanes.jpg" alt="">
-                                </a>
-                                <h2 class="post-title">
-                                    <a href="#">Sultanes vs Acereros</a>
-                                </h2>
-                                <p><span class="post-fecha">Estadio Sultanes</span></p>
-                                <p class="post-contenido text-justify">
-                                    Monterrey, N.L.<br>
-                                    26 de Diciembre de 2015<br>
-                                    Sultanes de Monterrey recibe a los Acereros de Monclova.
-                                </p>
-                                <div class="contenedor-botones">
-                                    <a href="#" class="btn btn-primary">Boletos</a>
-                                    <a href="#" class="btn btn-success">Descripcion</a>
-                                </div>
-                            </div>
-                            <div class="post clearfix">
-                                <a href="#" class="thumb pull-left">
-                                    <img class="img-thumbnail" src="resources/img/eventos/pal_norte.jpg" alt="">
-                                </a>
-                                <h2 class="post-title">
-                                    <a href="#">Pal Norte 2016</a>
-                                </h2>
-                                <p><span class="post-fecha">Parque Fundidora</span></p>
-                                <p class="post-contenido text-justify clearfix">
-                                    Monterrey, N.L.<br>
-                                    26 de Diciembre de 2015<br>
-                                    Gira Alejandro.
-                                </p>
-                                <div class="contenedor-botones">
-                                    <a href="#" class="btn btn-primary">Boletos</a>
-                                    <a href="#" class="btn btn-success">Descripcion</a>
-                                </div>
-                            </div>
-
+                            <div id="eventos"></div>
+                            
                             <nav>
                                 <div class="center-block">
                                     <ul class="pagination">
@@ -228,6 +187,7 @@ and open the template in the editor.
         <script type="text/javascript" src="resources/js/utils/bootstrap.js"></script>
         <script type="text/javascript" src="resources/js/utils/jquery.dataTables.js"></script>
         <script type="text/javascript" src="resources/js/utils/dataTables.bootstrap.js"></script>
+        <script type="text/javascript" src="resources/js/bootstrap/bootstrap-datepicker.js"></script>
         <!--<script type="text/javascript" src="resources/js/punto_venta.js" ></script>-->
         <script type="text/javascript" src="resources/js/portal.js" ></script>
         <script type="text/javascript" src="resources/js/utils/jquery.form.js" ></script>
